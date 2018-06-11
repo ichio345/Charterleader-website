@@ -1,0 +1,125 @@
+<extend name='Base:body' />
+
+
+
+<block name='content'>	
+	<link rel="stylesheet" type="text/css" href="{:C('TMURL')}/common-style/style.css">
+	<script type="text/javascript" src="{:C('TMURL')}/common-style/jqthumb.js"></script>
+
+
+	
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="wrap">
+      <ul class="display pc">
+        <li>
+          <img src="{:C('TMURL')}/images/s1.jpg" height="262" width="354" alt="" class="left">
+          <div class="text width-s bg-red right bg1">
+            <p>梦想 • 事业</p>
+          </div>
+        </li>
+        <li>
+          <img src="{:C('TMURL')}/images/s2.jpg" height="262" width="252"alt="" class="left">
+          <div class="text width-l bg-orange right bg2">
+            <p>学习 • 进步</p>
+          </div>
+        </li>
+        <li>
+          <img src="{:C('TMURL')}/images/s3.jpg" height="262" width="240" alt="" class="right">
+          <div class="text width-l bg-orange left bg3">
+            <p>家 • 天地</p>
+          </div>
+        </li>
+        <li>
+          <img src="{:C('TMURL')}/images/s4.jpg" height="262" width="354"  alt="" class="right">
+          <div class="text width-m bg-yellow left bg4">
+            <p>团队 • 协作</p>
+          </div>
+        </li>
+        <li>
+          <img src="{:C('TMURL')}/images/s5.jpg" height="262" width="354" alt="" class="left">
+          <div class="text width-s bg-red right bg5">
+            <p>专业 • 专注</p>
+          </div>
+        </li>
+        <li>
+          <img src="{:C('TMURL')}/images/s6.jpg" height="262" width="252"alt="" class="left">
+          <div class="text width-l bg-orange right bg6">
+            <p>快乐 • 创造</p>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="display wap">
+        <li>
+          <div class="pic pbg1"></div>
+          <div class="text bg-red bg1">
+            <p>梦想 • 事业</p>
+          </div>
+        </li>
+       <li>
+          <div class="pic pbg2"></div>
+          <div class="text bg-red bg2">
+            <p>学习 • 进步</p>
+          </div>
+        </li>
+        <li>
+          <div class="pic pbg3"></div>
+          <div class="text bg-red bg3">
+            <p>家 • 天地</p>
+          </div>
+        </li>
+        <li>
+          <div class="pic pbg4"></div>
+          <div class="text bg-red bg4">
+            <p>团队 • 协作</p>
+          </div>
+        </li>
+        <li>
+          <div class="pic pbg5"></div>
+          <div class="text bg-red bg5">
+            <p>专业 • 专注</p>
+          </div>
+        </li>
+        <li>
+          <div class="pic pbg6"></div>
+          <div class="text bg-red bg6">
+            <p>快乐 • 创造</p>
+          </div>
+        </li>
+      </ul>
+
+      <!-- 个人风采 begin -->
+      <div class="personal">
+        <div class="com-title">
+            <h3>个人风采</h3>
+            <em>Personal style</em>
+        </div>
+        <ul class="personal-list">
+         <Piclist pagenum='12' desclen='120' titlelen='10' >
+          <li>
+            <div class="pic">
+              <img src="{$Piclist.src}" height="273" width="340">
+            </div>
+            <em>{$Piclist.title}</em>
+            <p>{$Piclist.desc}</p>
+            <a class="more pc"> +</a>
+          </li>
+          </Piclist>
+        </ul>
+         <div class="cl"></div>
+        <!-- 调用分页标签 -->
+		{$pageshow}
+      </div>
+      <!-- 个人风采 end -->
+
+    </div>
+</block>

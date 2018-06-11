@@ -1,0 +1,98 @@
+<extend name="Base:body" />
+
+<block name='content'>
+		<style>
+			*{margin:0;padding:0}
+			ul li{list-style: none;}
+			.address {max-width:1200px;margin:0 auto}
+			.address ul li{float:left;width:380px;margin:10px;color:#fff;padding: 10px 20px;}
+			.address ul li:nth-child(odd){ background: #D7282D;}
+			.address ul li:nth-child(even){ background: #414141;}
+			.address ul li:nth-child(odd) .add-top b{color:#D7282D}
+			.add-bottom span{ display: block;}
+			.add-top{border-bottom:1px dashed #fff;padding-bottom:10px}
+			.add-top span:nth-child(1){ display: inline-block;border:1px solid #fff;width:20px;height:20px;padding:2px;text-align: center;line-height:20px;}
+			.add-top span:nth-child(1) b{font-weight:bold;font-size:16px;background: #fff;color:#949698;width:20px;height:20px;display: inline-block;}
+			.add-top span:nth-child(2){margin: -5px 10px;display: inline-block;font-size: 20px;font-weight: bold;vertical-align: middle; line-height: 27px;height: 35px;}
+			.add-bottom{margin-top:10px;}
+			.add-bottom span{line-height:28px;}
+			@media screen and (min-width:0px)  and  (max-width:1200px)  {
+				.address img{width: 100%;max-width: 229px;}
+				.address ul li{width: 94%;}
+			}
+		
+		</style>		
+		<div class="address">
+			<img src="{:C('TMURL')}/images/rx-title.jpg" height="112" width="329" style="margin:0 auto;text-align:center;display:block;margin-top:30px;margin-bottom:20px;">
+			<ul>
+				<li>
+					<div class="add-top">
+						<span><b>1</b></span>
+						<span>华东地区</span>
+					</div>
+					<div class="add-bottom">
+						<span>【电话】  0512-68087857</span>	
+						<span>【邮箱】  web_sales@clpe.com.cn</span>	
+						<span>【地址】 苏州新区滨河路625号创业大厦4栋</span>	
+					</div>
+				</li>
+				<li>
+					<div class="add-top">
+						<span><b>2</b></span>
+						<span>华南地区</span>
+					</div>
+					<div class="add-bottom">
+						<span>【电话】  0769-85098277</span>	
+						<span>【邮箱】  sales_pts@programtek.com.cn</span>	
+						<span>【地址】  东莞市长安镇振安东路76号</span>	
+					</div>
+				</li>
+				<li>
+					<div class="add-top">
+						<span><b>3</b></span>
+						<span>西南地区</span>
+					</div>
+					<div class="add-bottom">
+						<span>【电话】  0512-68087857</span>	
+						<span>【邮箱】  web_sales@clpe.com.cn</span>	
+						<span>【地址】 苏州新区滨河路625号创业大厦4栋</span>	
+					</div>
+				</li>
+				<li>
+					<div class="add-top">
+						<span><b>4</b></span>
+						<span>台湾地区</span>
+					</div>
+					<div class="add-bottom">
+						<span>【电话】  886-2-27970115</span>	
+						<span>【邮箱】  web_sales@clpe.com.cn</span>	
+						<span>【地址】 台湾台北市内湖区文湖街2号2楼</span>	
+					</div>
+				</li>
+				<li>
+					<div class="add-top">
+						<span><b>5</b></span>
+						<span>华北地区</span>
+					</div>
+					<div class="add-bottom">
+						<span>【电话】  0512-68087857</span>	
+						<span>【邮箱】  web_sales@clpe.com.cn</span>	
+						<span>【地址】 苏州新区滨河路625号创业大厦4栋</span>	
+					</div>
+				</li>
+				<li>
+					<div class="add-top">
+						<span><b>6</b></span>
+						<span>东南亚地区</span>
+					</div>
+					<div class="add-bottom">
+						<span>【电话】  0512-68087857</span>	
+						<span>【邮箱】  web_sales@clpe.com.cn</span>	
+						<span>【地址】 苏州新区滨河路625号创业大厦4栋</span>	
+					</div>
+				</li>
+			</ul>
+			
+		</div>
+{$content.Content}
+</block>

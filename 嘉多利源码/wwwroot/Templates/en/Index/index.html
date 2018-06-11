@@ -1,0 +1,391 @@
+<include file="Common/head"/>
+
+<div class="clear"></div>
+
+<!--pc 精品推荐 begin-->
+<div class="product-recommend pc">
+	
+    <!--图片 -->
+    <div class="bd wrap">
+    	<ul>
+        	<product limit='20' titlelen='18' id='264'>
+            <li>
+                <a href="{$product.link}" title="{$product.title}">
+                       <span class="pic">
+                           <p><img src="{$product.src}"  alt="{$product.title}" title="{$product.title}" /></p>
+                       </span>
+                       <span class="text">
+                           {$product.title}
+                       </span>
+                </a>
+            </li>
+            </product>
+        </ul>
+    </div>
+    <!--图片 -->
+    
+</div>
+<!--pc 精品推荐 end-->
+
+<!--wap 精品推荐 begin-->
+<div class="product-recommend wap" style="overflow: hidden;">
+	<div class="jdl_1" style="overflow: hidden;">
+        <div class="swiper-wrapper">
+           <product limit='20' titlelen='18' id='240'>
+            <div class="swiper-slide">
+                <a href="{$product.link}" title="{$product.title}">
+                    <div class="box">
+                        <span class="pic">
+                            <p><img src="{$product.src}" title="{$product.title}" alt="{$product.title}" /></p>
+                        </span>
+                        <span class="text">
+                           {$product.title}
+                        </span>
+                    </div>
+                </a>
+            </div>
+            </product>
+        </div>
+      
+    </div>
+</div>
+<!--wap 精品推荐 end-->
+<script>
+    var swiper = new Swiper('.jdl_1', {
+      loop:true,
+      slidesPerView:2,
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+       autoplay: {
+	        delay: 2500,
+	        disableOnInteraction: false,
+	      },
+     
+    });
+  </script>
+<div class="clear"></div>
+<!-- pc 测试方案 begin -->
+<div class="test pc">
+    <div class="wrap">
+        <!-- 标题 begin -->
+        <div class="title">
+            <a href="__ROOT__/product239.html"><h2>Charter Leader’s Testing Solution</h2></a>
+        </div>
+        <!-- 标题 end -->
+
+        <!-- 内容 begin-->
+        <div class="test-center">
+            <div class="bd">
+                <a class="prev"></a>
+                <a class="next"></a>
+                <ul>
+                   <product limit='20' titlelen='18' id='263' keywordlen='50'>
+                    <li>
+                        <a href="{$product.link}" title="{$product.title}">
+                            <div class="pic">
+                                <img src="{$product.src}" title="{$product.title}" alt="{$product.title}">
+                            </div>
+                            <div class="detail">
+                                <em>{$product.title}</em>
+                                <p>{$product.keyword}</p>
+                            </div>
+                        </a>
+                    </li>
+                    </product>
+                </ul>
+            </div>
+        </div>
+        <!-- 内容 end -->
+    </div>
+</div>
+<!-- pc 测试方案 end -->
+<!--wap 测试方案 begin -->
+<div class="test wap">
+    <!--标题 -->
+    <div class="title">
+        <div class="box">
+            <h2>Charter Leader’s Testing Solution</h2>
+        </div>
+    </div>
+    <!--标题 -->
+    <div class="jdl_ceshi">
+        <div class="swiper-wrapper">
+            <product limit='20' titlelen='18' id='263'>
+            <div class="swiper-slide">
+                <div class="box">
+                    <span class="pic">
+                        <a href="{$product.link}">
+                        <div class="more">
+                            <em></em>
+                        </div>
+                        <img src="{$product.src}" />
+                        </a>
+                    </span>
+                    <span class="text">
+                        <a href="{$product.link}">{$product.title}</a>
+                    </span>
+                </div>
+            </div>
+             </product>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    
+</div>
+
+
+<script>
+    var swiper = new Swiper('.jdl_ceshi', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+     
+    });
+  </script>
+<!--wap 测试方案 end -->
+
+
+<!--产品中心 begin-->
+<div class="product">
+    <div class="wrap">
+        <!-- 标题 begin -->
+        <div class="title">
+            <h2>Product Center</h2>
+        </div>
+        <!-- 标题 end -->
+
+        <!-- 产品分类列表 begin -->
+        <ul class="proclass-list">
+        <cname id='272' desclen='100'>
+            <li>
+                <a href="__ROOT__/product302.html" class="pic"  title="{$cname.name}"><img src="{$cname.src}" alt="{$cname.name}" title="{$cname.name}"></a>
+                <div class="detail">
+                    <h3><a href="">{$cname.name}<em>{$cname.remark}</em></a></h3>
+                    <dl>
+                         <dd>Suit for <em>Calibration, TX</em> and other testing items of RF chips</dd>
+                         <dd>With fixtures it can test modules or Chips with<em> PCI-e, USB, SDIO</em> interfaces.</dd>
+                         <dd>For wireless network AP/Module, it realize 1 to 4 automatic testing. <em>Support 802.11a/b/g/n/ac’2.4G</em> </dd>
+                         <dd><em>Provided with Ethernet connecting to DUTs,</em> test equipment and computer. With serial port connecting DUTs or controlling shielding boxes.</dd>
+                        
+                        
+
+                    </dl>
+                    <ul class="sence">
+                        <p>product display：</p>
+                        <li><img src="{:C('TMURL')}/images/scene1.png"></li>
+                        <li><img src="{:C('TMURL')}/images/scene2.png"></li>
+                    </ul>
+                </div>
+            </li>
+            </cname>
+             <cname id='273' desclen='100'>
+            <li>
+                <a href="__ROOT__/product301.html" class="pic"  title="{$cname.name}"><img src="{$cname.src}" alt="{$cname.name}" title="{$cname.name}"></a>
+                <div class="detail">
+                    <h3><a href="">{$cname.name}<em>{$cname.remark}</em></a></h3>
+                    <p> Customizing highly-isolated Shielding boxes, satisfying customers’ testing environments and requirements. Boxes are made from Aluminum alloy, guaranteeing long service life</p>
+                    <dl>
+                        <dd>Type:<em> Manual, Pneumatic or Automatic Shielding box</em></dd>
+                        <dd>Isolation：<em>2.4GHz > -85dB   5.8GHz > -80dB</em></dd>
+                        <dd>Interface：<em>AC,DC,RJ45,USB2.0 ,USB3.0 HDMI,RS232</em>,etc</dd>
+                    </dl>
+                    <ul class="sence">
+                        <p>product display：</p>
+                        <li><img src="{:C('TMURL')}/images/scene3.png"></li>
+                        <li><img src="{:C('TMURL')}/images/scene4.png"></li>
+                        <li><img src="{:C('TMURL')}/images/scene5.png"></li>
+                        <li><img src="{:C('TMURL')}/images/scene6.png"></li>
+                    </ul>
+                </div>
+            </li>
+            </cname>
+            <cname id='274' desclen='100'>
+            <li>
+                <a href="__ROOT__/product303.html" class="pic"  title="{$cname.name}"><img src="{$cname.src}" alt="{$cname.name}" title="{$cname.name}"></a>
+                <div class="detail">
+                    <h3><a href="">{$cname.name}<em>{$cname.remark}</em></a></h3>
+                    <p>Shielding and soundproof boxes satisfy customers' operating environment and test requirement by combining the shielding effect of metal and the absorbing ability of absorptive material. In addition, made from Aluminum alloy enable our boxes having long service life.</p>
+                    <dl>
+                        <dd>Shielding:  <em>≥ -70 dB</em>, Soundproof: <em>≥ -40 dB</em></dd>
+                        <dd>Interface： <em>RS-232C*1  USB*1 DC*2  BNC*1  卡农接口*1</em></dd>
+                        <dd>Pneumatic input：<em>5 - 10 Pa</em></dd>
+                    </dl>
+                    <ul class="sence">
+                        <p>product display：</p>
+                        <li><img src="{:C('TMURL')}/images/scene7.png"></li>
+                        <li><img src="{:C('TMURL')}/images/scene8.png"></li>
+                    </ul>
+                </div>
+            </li>
+            </cname>
+            <cname id='275' desclen='100'>
+            <li>
+                <a href="__ROOT__/product251.html" class="pic"  title="{$cname.name}"><img src="{$cname.src}" alt="{$cname.name}" title="{$cname.name}"></a>
+                <div class="detail">
+                    <h3><a href="">{$cname.name}<em>{$cname.remark}</em></a></h3>
+                    <p>Available for different kinds of RF Test and functional test fixture, meanwhile customers could collocate with our shielding boxes, realizing accurately testing, raising yield rate and efficiency</p>
+                    <dl>
+                        <dd>Applicable Products:  <em>Smartphone, Router, Remote controller, wifi module </em>and other kinds of electronic products related to wireless or sound</dd>
+                    </dl>
+                    <ul class="sence">
+                        <p>product display：</p>
+                        <li><img src="{:C('TMURL')}/images/scene9.png"></li>
+                        <li><img src="{:C('TMURL')}/images/scene10.png"></li>
+                        <li><img src="{:C('TMURL')}/images/scene11.png"></li>
+                        <li><img src="{:C('TMURL')}/images/scene12.png"></li>
+                    </ul>
+                </div>
+            </li>
+            </cname>
+        </ul>
+        <!-- 产品分类列表 end -->
+
+        <ul class="button">
+            <li><a href="__ROOT__/productt240.html">More products +</a></li>
+            <li><a href="__ROOT__/aboutt244.html">Online order +</a></li>
+        </ul>
+
+    </div>
+</div>
+<!--产品中心 end-->
+
+<div class="clear"></div>
+
+<!--pc 质赢天下 begin -->
+<div class="ad pc">
+    <div class="wrap">
+    
+    <div class="angle"></div>
+    <!--标题 -->
+    <div class="title">
+    	<div class="box">
+            <h2>Quality dominates the world</h2>
+        </div>
+    </div>
+    <!--标题 -->
+    
+    <!--内容 -->
+    <div class="box bd">
+        <ul class="ad-list">
+            <li>
+                <div class="left">
+                    <h3>Extensive Capability</h3>
+                    <em>Decade of experiences in Wireless Testing</em>
+                    <p>Charterleader Electronics has dedicated into wireless testing for more than a decade. Our products cover IOT Test solution, automatic test solution, multiple test solution for mass production, Highly-isolated shielding box, wireless test equipments, fixtures. 
+                    By foresighted decision, solid technology and professional manufacture, Charter Leader Group develops  and innovates continuously. We keep the strong competitive advantages in markets meanwhile supporting Made In China 2025</p>
+                </div>
+                <img src="{:C('TMURL')}/images/ad1.png" alt="" title="">
+            </li>
+            <li>
+                <div class="left">
+                     <h3>Extensive Capability</h3>
+                    <em>Decade of experiences in Wireless Testing</em>
+                    <p>Charterleader Electronics has dedicated into wireless testing for more than a decade. Our products cover IOT Test solution, automatic test solution, multiple test solution for mass production, Highly-isolated shielding box, wireless test equipments, fixtures. 
+                    By foresighted decision, solid technology and professional manufacture, Charter Leader Group develops  and innovates continuously. We keep the strong competitive advantages in markets meanwhile supporting Made In China 2025</p>
+                </div>
+                <img src="{:C('TMURL')}/images/ad1.png" alt="" title="">
+            </li>
+            <li>
+                <div class="left">
+                     <h3>Extensive Capability</h3>
+                    <em>Decade of experiences in Wireless Testing</em>
+                    <p>Charterleader Electronics has dedicated into wireless testing for more than a decade. Our products cover IOT Test solution, automatic test solution, multiple test solution for mass production, Highly-isolated shielding box, wireless test equipments, fixtures. 
+                    By foresighted decision, solid technology and professional manufacture, Charter Leader Group develops  and innovates continuously. We keep the strong competitive advantages in markets meanwhile supporting Made In China 2025</p>
+                </div>
+                <img src="{:C('TMURL')}/images/ad1.png" alt="" title="">
+            </li>
+            <li>
+                <div class="left">
+                     <h3>Extensive Capability</h3>
+                    <em>Decade of experiences in Wireless Testing</em>
+                    <p>Charterleader Electronics has dedicated into wireless testing for more than a decade. Our products cover IOT Test solution, automatic test solution, multiple test solution for mass production, Highly-isolated shielding box, wireless test equipments, fixtures. 
+                    By foresighted decision, solid technology and professional manufacture, Charter Leader Group develops  and innovates continuously. We keep the strong competitive advantages in markets meanwhile supporting Made In China 2025</p>
+                </div>
+                <img src="{:C('TMURL')}/images/ad1.png" alt="" title="">
+            </li>
+        </ul>
+    </div>
+    <div class="hd">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <a href="__ROOT__/aboutt244.html">Contact us +</a>
+    <!--内容 -->
+    </div>  
+</div>
+<!--pc 质赢天下 end -->
+
+
+<!--wap 质赢天下 begin -->
+<div class="ad wap">
+    <div class="swiper-container">
+    <!--标题 -->
+    <div class="title">
+        <div class="box">
+            <h2>"质"赢天下</h2>
+        </div>
+    </div>
+    <!--标题 -->
+    
+    <!--内容 -->
+    <div class="ad-center">
+        <ul class="ad-list">
+            <li>
+                <span>One<i></i></span>
+                <div class="left">
+                    <img src="{:C('TMURL')}/images/ad1.png" alt="" title="">
+                    <h3>Extensive Capability</h3>
+                    <em>Decade of experiences in Wireless Testing</em>
+                    <p>Charterleader Electronics has dedicated into wireless testing for more than a decade. Our products cover IOT Test solution, automatic test solution, multiple test solution for mass production, Highly-isolated shielding box, wireless test equipments, fixtures. 
+                    By foresighted decision, solid technology and professional manufacture, Charter Leader Group develops  and innovates continuously. We keep the strong competitive advantages in markets meanwhile supporting Made In China 2025</p>
+                </div>
+            </li>
+
+
+
+        </ul>
+    </div>
+    <a href="__ROOT__/aboutt244.html">立即咨询 +</a>
+    <!--内容 -->
+    </div>  
+</div>
+<!--wap 质赢天下 end -->
+
+<div class="clear"></div>
+
+
+
+<div class="clear"></div>
+
+<!--全国热线 -->
+<div class="hot-tel wap">
+	<div class="wrap">
+    	<span class="text">
+        	全国服务热线电话 <em>{$tel}</em>
+        </span>
+        <span class="btn">
+        	<a href="__ROOT__/aboutt244.html">立即咨询</a>
+        </span>
+    </div>
+</div>
+<!--全国热线 -->
+
+<div class="clear"></div>
+
+<!-- pc 新闻中心 begin -->
+
+
+<div class="clear"></div>
+
+
+<include file="Common/footer"/>

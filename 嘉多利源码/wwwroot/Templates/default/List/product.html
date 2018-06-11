@@ -1,0 +1,48 @@
+<extend name="Base:body" />
+
+
+<block name='content'>
+	<link rel="stylesheet" type="text/css" href="{:C('TMURL')}/common-style/style.css">
+	<script type="text/javascript" src="{:C('TMURL')}/common-style/jqthumb.js"></script>
+
+
+	<div class="wrap">
+        <!-- pc 左侧 begin -->
+        <div class="ny-left pc">
+            <div class="title">
+                <h2><bname >{$bname.name}</bname></h2>
+                <em><bname >{$bname.remark}</bname></em>
+            </div>
+            <columnList type="product" show='now_all'/>
+        </div>
+        <!-- pc 左侧 end -->
+
+        <!-- wap 左侧 begin -->
+        <div class="ny-left wap">
+               <columnListt type="product" show='now_all'/>
+        </div>
+        <!-- wap 左侧 end -->
+
+        <div class="ny-right">
+            <p class="all"><em><cname >{$cname.name}</cname></em> 共找到 <b><pronum >{$pronum.num}</pronum></b> 件产品</p>
+            <ul class="ny-prolist">
+                <Prolist pagenum='12' desclen='20' titlelen='10' >
+                <li>
+                    <div class="pic">
+                        <a href="{$productList.link}"><img src="{$productList.src}" height="182" width="230" alt="{$productList.title}" title="{$productList.title}"></a>
+                    </div>
+                    <a href="{$productList.link}" class="name">{$productList.title}</a>
+                    <ul class="btn">
+                        <li><a href="__ROOT__/aboutt244.html">免费询价</a></li>
+                        <li><a href="http://www.tmall.com/">网购询价</a></li>
+                    </ul>
+                </li>
+               </Prolist>
+            </ul>
+            <div class="cl"></div>
+            <!-- 调用分页标签  -->
+		{$pageshow}
+        </div>
+        <div class="clear"></div>
+    </div>
+</block>

@@ -1,0 +1,75 @@
+<include file="Common/head"/>
+<!-- 图片预览 -->
+	<include file="Common/pic_js"/>
+	<script type="text/javascript">
+    var PICNUM=1;
+    //还可以上传几张图片
+    var CanPicnum=PICNUM;
+    //设置单个图片大小
+    var PicSize=800*1024;
+</script>
+<script type="text/javascript" src="{y!:C('HTStyle')}/webuploader/upcon.js"></script>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+	<div class="title"><span class='add'></span><strong>修改友情链接</strong></div>
+		<div class="mrclass">
+			<form action="{y!:U('System/updata_link')}" method="post">
+				<div class="mrlist">
+					<ul>
+						<li>
+							<span class="mrtitle fl">链接名称：</span>
+							<input type="hidden" name="id" value="{y!$link.id}"></input>
+							<input type="text" name="linkname" class='mrinput' style="width:250px" value="{y!$link.linkname}" >
+							&nbsp;&nbsp;&nbsp;&nbsp;是否开启&nbsp;&nbsp;
+							<input type="checkbox" checked="checked" <if condition="$link['is_show'] eq 1"> checked='checked' </if> value="1" name='is_show'/>
+						</li>
+						<li>
+							<span class="mrtitle fl">链接地址：</span>
+							<input type="text" name="linkurl" value="{y!$link.linkurl}" class='mrinput' style="width:250px" >
+						</li>
+						<li>
+							<span class="mrtitle fl">排序</span>
+							<input type="text" name="linkorder"  value="{y!$link.linkorder}" class='mrinput' style="width:250px" >
+						</li>
+<div class="uploader">
+	<div id="uploader">
+		<div id="filePicker">点击上传图片</div>
+	    <div id="fileList" class="uploader-list">
+			<notempty name="link['linkpic']">
+				<div class="tlist fl">
+					<img src="__ROOT__/Upload{y!$link.linkpic}" width="120" height="100">
+					<input type="hidden" name="filepath[]" value="{y!$link.linkpic}">
+				</div>
+			</notempty>
+	    </div>
+	</div>	
+</div>			
+<script type="text/javascript">	
+   // 添加全局站点信息
+    var tlist=$(".tlist").find("img").length
+    CanPicnum=PICNUM-tlist;
+    if(CanPicnum==0){
+    	CanPicnum=-1;
+    }
+    //删除图片的路径
+    var PRO_DEL_PIC="{y!:U('System/del_pic',array('table'=>'link','field'=>'linkurl'))}";
+    //产品ID
+    var PID="{y!$vo['id']}";
+</script>
+<script type="text/javascript" src="{y!:C('HTStyle')}/webuploader/upcon.js"></script>
+						
+					</ul>
+				</div>
+				<input type="submit" class="but fl" value="提交" >
+				<a href="{y!:U('link')}" class="ret ml10">返回</a>
+			</form>
+			
+		</div>		
+	</div>
+	<div class="cl"></div>
+
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

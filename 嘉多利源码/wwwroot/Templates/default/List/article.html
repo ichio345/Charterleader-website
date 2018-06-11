@@ -1,0 +1,32 @@
+<extend name="Base:body" />
+
+
+<block name='content'>
+	<link rel="stylesheet" type="text/css" href="{:C('TMURL')}/common-style/style.css">
+	<script type="text/javascript" src="{:C('TMURL')}/common-style/jqthumb.js"></script>
+
+
+	<div class="wrap">
+        <columnListtt type="article" show='now_all'/>
+        <ul class="ny-news-list">
+                <Articlelist pagenum='12' desclen='160' titlelen='50' >
+                <li>
+                    <span class="pic">
+                        <a href="{$articleList.link}"><img src="{$articleList.src}" height="174" width="263" /></a>
+                    </span>
+                    <span class="text">
+                        <div class="title">
+                            <h3><a href="{$articleList.link}">{$articleList.title}</a></h3>
+                            <a href="{$articleList.link}" class="more pc">查看详情</a>
+                        </div>
+                        <em>发布日期：{$articleList.time|date="Y-m-d",###}</em>
+                        <p>{$articleList.desc}</p>
+                    </span>
+                </li>
+               </Articlelist>
+        </ul>
+        <div class="cl"></div>
+        <!-- 调用分页标签  -->
+		{$pageshow}
+    </div>
+</block>

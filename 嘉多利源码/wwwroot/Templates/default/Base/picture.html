@@ -1,0 +1,32 @@
+<include file="Common/head"/>
+<div class="ny_main ty_w jz">
+	<div class="mleft fl">	
+		<div class="mleft_title">
+		<!-- 调用顶级栏目 -->
+		<cname id='35' >	
+			{$cname.name}
+		</cname>
+		</div>
+		<!-- 栏目列表 -->
+		<div class="mleft_list">
+			<columnList type="about" show="now_all"/>
+		</div>
+	</div>
+	<div class="mright fr">
+		<div class="mright_title">
+			<!-- 调用当前栏目标签 -->
+			<h1 class="fl"><cname >{$cname.name}</cname></h1>
+			<div class="position fr">
+			<!-- 面包屑导航 -->
+				{:L('position')}:<a href="{:U('Index/index')}">{:L('home')}</a> > <position />
+			</div>
+			<div class="cl"></div>
+		</div>
+		<div class="content">
+			<block name='content'></block>
+		</div>
+		
+	</div>
+	<div class="cl"></div>
+</div>
+<include file="Common/footer"/>

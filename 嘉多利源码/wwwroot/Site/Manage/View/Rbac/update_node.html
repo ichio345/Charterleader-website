@@ -1,0 +1,42 @@
+<include file="Common/head"/>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+		<div class="title"><span class="add"></span><strong>修改{y!$typename}</strong></div>
+		<div class="mrclass jz">
+			<form action="{y!:U('Rbac/update_node_form',array('noid'=>$_GET['noid']))}" method="post">
+			<div class="mrlist">
+				<ul>
+					<li>
+						<span class="mrtitle fl">{y!$typename}名称：</span>
+						<input type="text" value="{y!$node.name}" name='name' class='mrinput' />
+					</li>
+					<li>
+						<span class="mrtitle fl">{y!$typename}描述：</span>
+						<input type="text" value="{y!$node.title}" name='title' class='mrinput'>
+					</li>
+					<li>
+						<span class="mrtitle fl">左侧显示：</span>
+						<input type="radio" name="is_show" value="1" <if condition="$node.is_show eq 1"> checked="checked" </if>> 开启&nbsp;&nbsp;
+						<input type="radio" name="is_show" value="0" <if condition="$node.is_show eq 0"> checked="checked" </if>> 关闭
+					</li>
+					<li>
+						<span class="mrtitle fl">排序：</span>
+						<input type="text" name="sort" value="{y!$node.sort}" class='mrinput'>
+					</li>
+					<input type="hidden" name='pid' value="{y!$pid}">
+					<input type="hidden" name='level' value="{y!$level}">
+					<li>
+						<input type="submit" name="dosubmit" class="but" value="修改" />
+						<a href="{y!:U('Rbac/node')}" class="ret">返回</a>
+					</li>
+				</ul>
+			</div>	
+			</form>
+		</div>
+	</div>
+	<div class="cl"></div>	
+</div>
+<include file="Common/foot"/> 
+</body>
+</html>

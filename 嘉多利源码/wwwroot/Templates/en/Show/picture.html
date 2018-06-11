@@ -1,0 +1,36 @@
+<extend name='Base:body' />
+<block name='left'>
+<div class="mleft fl">	
+	<div class="mleft_title">
+	<!-- 调用顶级栏目 -->
+	<cname id='1'>{$cname.name}</cname>
+	</div>
+	<!-- 栏目列表 -->
+	<div class="mleft_list">
+		<columnList type="about" show='all'/>
+	</div>
+</div>
+</block>
+
+
+<block name='content'>	
+	<link rel="stylesheet" type="text/css" href="{:C('TMURL')}/common-style/style.css">
+	<div id="nr-container">
+		<div class="nr-title">
+			{$content.Title}
+		</div>
+		<div class="nr-content">
+			{$content.Content}
+			<div class="prev">
+				{:L('prev')}:<a href="{$prev.link}">{$prev.title}</a>
+			</div>
+			<div class="next">
+				{:L('next')}:<a href="{$next.link}">{$next.title}</a>
+			</div>
+			<div class="returnbt">
+				<input type='button' value='{:L("back")}' OnClick='history.back();'>
+			</div>
+		</div>
+	</div>
+
+</block>

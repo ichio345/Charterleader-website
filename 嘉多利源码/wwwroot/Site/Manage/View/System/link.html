@@ -1,0 +1,53 @@
+<include file="Common/head"/>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+	<div class="title"><span></span><strong>友情链接列表</strong><a href="{y!:U('add_link')}" class="op">添加友情链接</a></div>
+		<div class="list">
+			<form action="{y!:U('System/delete_link')}" id='form' method="post">
+			<table id='playList' class="table-hover" cellpadding="0" cellspacing="0">
+				<tr>
+					<th width="8%">编号</th>
+					<th width="25%">链接名称</th>
+					<th>链接地址</th>
+					<th width="8%">排序</th>
+					<th width="15%" style="text-align:right;border:none;">操作</th>
+				</tr>	
+				<volist name="link" id="vo" empty="$empty" >
+					<tr>
+						<td width="8%">
+						<input type="checkbox" class="sj" name="del[]" value="{y!$vo.id}" />&nbsp;&nbsp;{y!$vo.id}
+						</td>
+						<td width="25%">
+							<a href="{y!:U('update_link',array('id'=>$vo['id']))}">{y!$vo.linkname}</a>
+						</td>
+						<td >
+							{y!$vo.linkurl}
+						</td>
+						<td>
+							{y!$vo.linkorder}
+						</td>
+						<td width="15%" align="right" style="border-right:0" >
+							<a href="{y!:U('updata_link',array('id'=>$vo['id']))}">[修改]</a>
+							<a href="{y!:U('delete_link',array('id'=>$vo['id']))}" onclick="return confirm('你确定要删除吗?')"><font color="#ff7200">[删除]</font></a>
+						</td>	
+					</tr>
+				</volist>
+				<tr class="bottom">
+					<td colspan="5">
+						<input type="button" value="全选/全不选" id="selectAll" />
+						<input type="button" value="反选" id="reverse" />
+						<input type="button" value="删除选定" class="list_del">
+					{y!$show}
+					</td>
+				</tr>
+			</table>
+			</form>
+		</div>		
+	</div>
+	<div class="cl"></div>
+
+</div>
+<include file="Common/footer"/>
+</body>
+</html>

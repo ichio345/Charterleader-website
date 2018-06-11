@@ -1,0 +1,53 @@
+<include file="Common/head"/>
+<div class="ny_main ty_w jz">
+	<div class="mleft fl">	
+		<div class="mleft_title">
+		<!-- 调用顶级栏目 -->
+		<cname id='36' >	
+			{$cname.name}
+		</cname>
+		</div>
+		<!-- 栏目列表 -->
+		<div class="mleft_list">
+			<columnList type="product" />
+		</div>
+	</div>
+	<div class="mright fr">
+		<div class="mright_title">
+			<!-- 调用当前栏目标签 -->
+			<h1 class="fl"><cname >{$cname.name}</cname></h1>
+			<div class="position fr">
+			<!-- 面包屑导航 -->
+				{:L('position')}:<a href="{:U('Index/index')}">{:L('home')}</a> > <position />
+			</div>
+			<div class="cl"></div>
+		</div>
+		<div class="content">
+			<block name="content"></block>
+		</div>
+		
+	</div>
+	<div class="cl"></div>
+</div>
+<script type="text/javascript">
+	$(".menu_body").hide();
+	$(".menu_body.ctitle1 ").show();
+	$(".menu_head").click(function(){
+		if($(this).next(".menu_body").is(":hidden")){
+		$(this).next(".menu_body").show();
+		}else{
+		$(this).next(".menu_body").hide();	
+		}
+		
+	})
+	$(".zfl").click(function(){
+	if(!($(this).next(".menu_body").find("li").length>0)){
+			alert("此分类下暂时无产品！")
+		}
+	})
+</script>
+<style type="text/css">
+	ul.on{display:block !important;}
+	a.on{color:#f30;}	
+</style>
+<include file="Common/footer"/>

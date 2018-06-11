@@ -1,0 +1,63 @@
+<include file="Common/head"/>
+<!-- 图片预览 -->
+	<include file="Common/pic_js"/>
+	<script type="text/javascript">
+    var PICNUM=1;
+    //还可以上传几张图片
+    var CanPicnum=PICNUM;
+    //设置单个图片大小
+    var PicSize=800*1024;
+    //关闭裁剪 
+	var SERVER_URL="{y!:U('Common/uploadImg',array('cut'=>0))}";
+</script>
+<script type="text/javascript" src="{y!:C('HTStyle')}/webuploader/upcon.js"></script>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+	<div class="title"><span class='add'></span><strong>添加幻灯片</strong></div>
+		<div class="mrclass">
+			<form action="{y!:U('System/add_slide_form')}" method="post">
+				<div class="mrlist">
+					<ul>
+						<li>
+							<span class="mrtitle fl">标题：</span>
+							<input type="text" name="title" class='mrinput' style="width:250px" >
+							&nbsp;&nbsp;&nbsp;&nbsp;首页显示&nbsp;&nbsp;
+							<input type="checkbox" checked="checked" value="1" name='is_index'/>
+						</li>
+						<li>
+							<span class="mrtitle fl">描述：</span>
+							<textarea name="desc" class="mrtext" style="width:500px;height:50px"></textarea>
+						</li>
+						<li>
+							<span class="mrtitle fl">链接地址：</span>
+							<input type="text" name="linkurl" class='mrinput' style="width:250px">
+						</li>
+						<li>
+							<span class="mrtitle fl">排序：</span>
+							<input type="text" name="sort" class='mrinput' style="width:250px">
+						</li>
+		
+						<li>
+							<span class="mrtitle fl">图片：</span> 
+							<div class="uploader">
+								<div id="uploader">
+									<div id="filePicker"></div>
+								    <div id="fileList" class="uploader-list"></div>
+								</div>	
+							</div>				
+						</li>
+					</ul>
+				</div>
+				<input type="submit" class="but fl" value="提交" >
+				<a href="{y!:U('slide')}" class="ret ml10">返回</a>
+			</form>
+			
+		</div>		
+	</div>
+	<div class="cl"></div>
+
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

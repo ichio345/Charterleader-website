@@ -1,0 +1,29 @@
+<script type="text/javascript">
+	$jq(function () {
+            $jq("#selectAll").click(function () {//全选 /全不选 
+                if($jq("#playList :checkbox").is(':checked')){
+                    $jq("#playList :checkbox").attr("checked", false);
+                }else{
+                     $jq("#playList :checkbox").attr("checked", true); 
+                }
+                
+            });   
+            $jq("#reverse").click(function () {//反选  
+                $jq("#playList :checkbox").each(function () {  
+                    $jq(this).attr("checked", !$jq(this).attr("checked"));  
+                });  
+            });
+            $jq(".list_del").click(function(){
+            	if( $jq("input:checked").length<1){
+            		alert('请选择要删除的项！')
+			     	return false
+			    }else{
+			     	var pd=confirm('你确定要删除吗?')
+	            	if(pd){
+	            		$jq('#form').submit();	
+	            	}
+			    }			    
+            });
+        });  
+		
+</script>

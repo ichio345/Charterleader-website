@@ -1,0 +1,1 @@
+a:6:{s:8:"is_water";b:0;s:6:"VLENTH";s:1:"4";s:5:"depth";i:2;s:7:"systemp";s:7:"default";s:7:"siteUrl";s:28:"http://localhost:8800/think/";s:6:"htname";s:27:"苏州嘉多利精密电子";}

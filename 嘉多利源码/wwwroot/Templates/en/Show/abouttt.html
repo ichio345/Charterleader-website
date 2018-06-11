@@ -1,0 +1,371 @@
+<extend name="Base:body" />
+
+<block name='content'>
+
+    <div class="jdl1 width12">
+        <h2 class="jd-title">
+            <span>嘉多利服务</span>
+            <b><img src="{:C('TMURL')}/images/h2-title.png"></b>
+            <b class="jd-titleb">用自己的实力说话，以客户为己任，不断创新，与时俱进</b>
+        </h2>
+        <div class="jd-ul">
+            <ul>
+                <li>专业</li>
+                <li>品质</li>
+                <li>诚信</li>
+                <li>服务</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!--嘉多利服务-->
+    
+    <div class="jdl2">
+        <div class="width12">
+            <h2 class="jd-title">
+                <span>参观指导</span>
+                <b><img src="{:C('TMURL')}/images/h2-title1.png"></b>
+                <b class="jd-titleb" style="color:#fff;">始终秉承开拓创新的精神，与同行同业共同发展共同进步</b>
+            </h2>
+            <div class="zhidao c">
+                <div class="zd-left fl">
+                    <news limit='20' titlelen='25' desclen='35' id='313'>
+                    <div><img src="{$news.src}"></div>
+                    </news>
+                    
+                </div>
+        
+                <ul class="zd-right fr zd-div">
+                     <news limit='20' titlelen='25' desclen='35' id='313'>
+                    <li><span>{$news.time|date='Y-m-d',###}</span> {$news.title}</li>
+                    </news>
+                </ul>
+        
+            </div>
+            <script type="text/javascript">
+                $(function(){
+                    $(".zd-right li").click(function(){
+                     var ind=$(this).index();
+                     $(".zd-left div").eq(ind).show().siblings("div").hide();
+                        $(this).addClass("on").siblings("li").removeClass("on");
+                    })
+                    
+                    
+                })
+                
+            </script>
+            </div>
+        </div>
+    <!--參觀指導-->
+    
+    <div class="jdl3">
+        <div class="width12">
+            <h2 class="jd-title">
+                <span>嘉多利故事</span>
+                <b><img src="{:C('TMURL')}/images/h2-title.png"></b>
+                <b class="jd-titleb">风雨同舟，共同努力，让嘉多利人一步步靠的更近</b>
+            </h2>
+        
+        
+        <div class="story">
+            <ul class="swiper-wrapper">
+             <news limit='0,1' titlelen='25' desclen='35' id='314'>
+                <li class="swiper-slide">
+                    <a href="{$news.link}">
+                        <div class="story-img">
+                            <span class="st-border"></span>
+                            <span class="st-img"><img src="{$news.src}"></span>
+                        </div>
+                        <div class="story-int">
+                            <span>{$news.title}</span>
+                            <span>{$news.desc}</span>
+                        </div>
+                    </a>
+                    
+                </li>
+                </news>
+                <news limit='1,1' titlelen='25' desclen='35' id='314'>
+                <li class="swiper-slide">
+                    <a href="{$news.link}">
+                        
+                        <div class="story-int">
+                            <span>{$news.title}</span>
+                            <span>{$news.desc}</span>
+                        </div>
+                        <div class="story-img">
+                            <span class="st-border"></span>
+                            <span class="st-img"><img src="{$news.src}"></span>
+                        </div>
+                    </a>
+                    
+                </li>
+                </news>
+                <news limit='2,1' titlelen='25' desclen='35' id='314'>
+                <li class="swiper-slide">
+                    <a href="{$news.link}">
+                        <div class="story-img">
+                            <span class="st-border"></span>
+                            <span class="st-img"><img src="{$news.src}"></span>
+                        </div>
+                        <div class="story-int">
+                            <span>{$news.title}</span>
+                            <span>{$news.desc}</span>
+                        </div>
+                    </a>
+                    
+                </li>
+                </news>
+               <news limit='3,1' titlelen='25' desclen='35' id='314'>
+                <li class="swiper-slide">
+                    <a href="{$news.link}">
+                        
+                        <div class="story-int">
+                            <span>{$news.title}</span>
+                            <span>{$news.desc}</span>
+                        </div>
+                        <div class="story-img">
+                            <span class="st-border"></span>
+                            <span class="st-img"><img src="{$news.src}"></span>
+                        </div>
+                    </a>
+                    
+                </li>
+                </news>
+            </ul>
+            
+        </div>
+
+    </div>
+     </div>   
+        <div class="jdl5">
+        
+        <h2 class="jd-title">
+            <span>未来计划</span>
+            <b><img src="{:C('TMURL')}/images/h2-title.png"></b>
+            <b class="jd-titleb">嘉多利公司将进一步扩大全球销售范围，以实力说话</b>
+        </h2>
+
+        <div class="jiahua-bg">
+            <div class="jihua">
+                <ul class="swiper-wrapper width12 jimargin0">
+                    <li class="swiper-slide">
+                        <a href="#">
+                            <div class="jiahua-img"><img src="{:C('TMURL')}/images/img_15.jpg"></div>
+                            <div class="jiahua-int">
+                                <span><img src="{:C('TMURL')}/images/icon.png"></span>
+                                <b></b>
+                                <h6>国内销量稳定提升</h6>
+                                <p>将坚持以技术创新为核心经营理念，通过发行上市迅速提高公司生产和设计能力</p>
+                                <a><em>查看更多</em></a>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#">
+                            <div class="jiahua-img"><img src="{:C('TMURL')}/images/img_16.jpg"></div>
+                            <div class="jiahua-int">
+                                <span><img src="{:C('TMURL')}/images/icon2.png"></span>
+                                <b></b>
+                                <h6>国外扩大销售范围</h6>
+                                <p>全面提高公司技术水平，以国际一流的供应商为发展目标，达到国际先进技术水平</p>
+                                <a><em>查看更多</em></a>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#">
+                            <div class="jiahua-img"><img src="{:C('TMURL')}/images/img_17.jpg"></div>
+                            <div class="jiahua-int">
+                                <span><img src="{:C('TMURL')}/images/icon3.png"></span>
+                                <b></b>
+                                <h6>运贸结合</h6>
+                                <p>发挥运贸结合的优势，涉及到的主要物流仓储工具有： 槽车、液化气船、岸上储罐</p>
+                                <a><em>查看更多</em></a>
+                            </div>
+                        </a>
+                    </li>
+                    
+                
+                </ul>
+                <div class="swiper-button-next" id="jiantou" style="background: url({:C('TMURL')}/images/right.png) center center no-repeat;width:49px;height:387px;right:0;top:22px"></div>
+                <div class="swiper-button-prev" id="jiantou" style="background: url({:C('TMURL')}/images/left.png) center center no-repeat;width:49px;height:387px;left:0;top:22px"></div>
+            
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="jdl4">
+        <div class="width12">
+            <h2 class="jd-title">
+                <span>嘉多利剪影</span>
+                <b><img src="{:C('TMURL')}/images/h2-title.png"></b>
+                <b class="jd-titleb">留住美丽的瞬间，留下美丽的回忆，是嘉多利人的生活笔记</b>
+            </h2>
+        </div>
+        
+        <div class="jianying">
+            <ul class="swiper-wrapper">
+                <pic id='315' limit='10'>
+                <li class="swiper-slide"><img src="{$pic.src}"></li>
+                </pic>
+            </ul>
+            <div class="swiper-button-next" style="background: url({:C('TMURL')}/images/img_10.jpg) center center no-repeat;width:53px;height:85px;right:0;"></div>
+            <div class="swiper-button-prev" style="background: url({:C('TMURL')}/images/img_07.jpg) center center no-repeat;width:53px;height:85px;left:0"></div>
+        </div>
+    </div>
+    
+    
+
+  
+  <script>
+    $(document).ready(function(){
+        var width=$(window).width(); //浏览器当前窗口可视区域宽度
+         if(width <=500){
+            var swiper = new Swiper('.jianying', {
+              loop:true,
+              slidesPerView:1,
+              spaceBetween:0,
+              slidesPerGroup:1,
+              loop: true,
+              loopFillGroupWithBlank: true,
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+              },
+              navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              },
+              autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+              },
+            });
+          
+         
+         }
+         
+         else if(width >=500){
+              var swiper = new Swiper('.jianying', {
+              loop:true,
+              slidesPerView:2,
+              spaceBetween:30,
+              slidesPerGroup:2,
+              loop: true,
+              loopFillGroupWithBlank: true,
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+              },
+              navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              },
+              autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+              },
+            });
+          
+         }
+    })
+    
+</script>   
+  
+  <script>
+    $(document).ready(function(){
+        var width=$(window).width(); //浏览器当前窗口可视区域宽度
+         if(width <=1200){
+            var swiper = new Swiper('.story', {
+              loop:true,
+              slidesPerView:2,
+              spaceBetween:0,
+              slidesPerGroup:2,
+              loop: true,
+              loopFillGroupWithBlank: true,
+              
+              autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+              },
+            });
+          
+         
+         }
+         
+         if(width <=600){
+            var swiper = new Swiper('.story', {
+              loop:true,
+              slidesPerView:1,
+              spaceBetween:0,
+              slidesPerGroup:1,
+              loop: true,
+              loopFillGroupWithBlank: true,
+              
+              autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+              },
+            });
+          
+         
+         }
+         
+        
+    })
+    
+</script>   
+  
+  <script>
+        $(document).ready(function(){
+            var width=$(window).width(); //浏览器当前窗口可视区域宽度
+             if(width <=900){
+                var swiper = new Swiper('.jihua', {
+                  loop:true,
+                  slidesPerView:1,
+                  spaceBetween:0,
+                  slidesPerGroup:1,
+                  loop: true,
+                  loopFillGroupWithBlank: true,
+                  pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                  },
+                  navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                  },
+                  autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                  },
+                });
+             }
+             
+             else if(width >=900){
+                  var swiper = new Swiper('.jihua', {
+                  loop:true,
+                  slidesPerView:3,
+                  spaceBetween:0,
+                  slidesPerGroup:3,
+                  loop: true,
+                  loopFillGroupWithBlank: true,
+                  pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                  },
+                  navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                  },
+                  autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                  },
+                });
+             }
+        })
+        
+    </script>   
+</block>

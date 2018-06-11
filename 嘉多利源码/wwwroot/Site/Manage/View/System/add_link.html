@@ -1,0 +1,57 @@
+<include file="Common/head"/>
+<!-- 图片预览 -->
+	<include file="Common/pic_js"/>
+	<script type="text/javascript">
+    var PICNUM=1;
+    //还可以上传几张图片
+    var CanPicnum=PICNUM;
+    //设置单个图片大小
+    var PicSize=800*1024;
+</script>
+<script type="text/javascript" src="{y!:C('HTStyle')}/webuploader/upcon.js"></script>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+	<div class="title"><span class='add'></span><strong>添加友情链接</strong></div>
+		<div class="mrclass">
+			<form action="{y!:U('System/add_link')}" method="post">
+				<div class="mrlist">
+					<ul>
+						<li>
+							<span class="mrtitle fl">链接名称：</span>
+							<input type="text" name="linkname" class='mrinput' style="width:250px" >
+							&nbsp;&nbsp;&nbsp;&nbsp;是否开启&nbsp;&nbsp;
+							<input type="checkbox" checked="checked" value="1" name='is_show'/>
+						</li>
+						<li>
+							<span class="mrtitle fl">链接地址：</span>
+							<input type="text" name="linkurl" class='mrinput' style="width:250px" >
+						</li>
+						<li>
+							<span class="mrtitle fl">排序</span>
+							<input type="text" name="linkorder" class='mrinput' style="width:250px" >
+						</li>
+						<li>
+							<span class="mrtitle fl">图片：</span> 
+							<div class="uploader">
+								<div id="uploader">
+									<div id="filePicker"></div>
+								    <div id="fileList" class="uploader-list"></div>
+								</div>	
+							</div>				
+						</li>
+						
+					</ul>
+				</div>
+				<input type="submit" class="but fl" value="提交" >
+				<a href="{y!:U('link')}" class="ret ml10">返回</a>
+			</form>
+			
+		</div>		
+	</div>
+	<div class="cl"></div>
+
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

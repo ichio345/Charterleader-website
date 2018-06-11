@@ -1,0 +1,85 @@
+<include file="Common/head"/>
+<!-- 图片预览 -->
+	<include file="Common/pic_js"/>
+	<script type="text/javascript">
+    var PICNUM=5;
+    //还可以上传几张图片
+    var CanPicnum=PICNUM;
+    //设置单个图片大小
+    var PicSize=800*1024;
+</script>
+<script type="text/javascript" src="{y!:C('HTStyle')}/webuploader/upcon.js"></script>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+	<div class="title"><span class='add'></span><strong>修改幻灯片</strong></div>
+		<div class="mrclass">
+			<form action="{y!:U('System/update_slide_form')}" method="post">
+				<div class="mrlist">
+					<ul>
+						<li>
+							<input type="hidden" name="id" value="{y!$slide.ID}">
+							<span class="mrtitle fl">标题：</span>
+							<input type="text" name="title" class='mrinput' style="width:250px" value="{y!$slide.Title}">
+							&nbsp;&nbsp;&nbsp;&nbsp;首页显示&nbsp;&nbsp;
+							<input type="checkbox" <if condition="$slide['is_index'] eq 1"> checked='checked' </if> value="1" name='is_index'/>
+						</li>
+						<li>
+							<span class="mrtitle fl">描述：</span>
+							<textarea name="desc" class="mrtext" style="width:500px;height:50px">{y!$slide.Desc}</textarea>
+						</li>
+						<li>
+							<span class="mrtitle fl">链接地址：</span>
+							<input type="text" name="linkurl" class='mrinput' style="width:250px" value="{y!$slide.LinkUrl}">
+						</li>
+
+						<li>
+							<span class="mrtitle fl">排序：</span>
+							<input type="text" name="sort" class='mrinput' style="width:250px" value="{y!$slide.sort}">
+						</li>
+
+						<li>
+							<span class="mrtitle fl">图片：</span> 
+<div class="uploader">
+	<div id="uploader">
+		<div id="filePicker">点击上传图片</div>
+	    <div id="fileList" class="uploader-list">
+			<notempty name="slide['PicUrl']">
+				<div class="tlist fl">
+					<img src="__ROOT__/Upload{y!$slide.PicUrl}" width="120" height="100">
+					<input type="hidden" name="filepath[]" value="{y!$slide.PicUrl}">
+				</div>
+			</notempty>
+	    </div>
+	</div>	
+</div>			
+<script type="text/javascript">
+	//关闭裁剪 
+	var SERVER_URL="{y!:U('Common/uploadImg',array('cut'=>0))}";
+   // 添加全局站点信息
+    var tlist=$(".tlist").find("img").length
+    CanPicnum=PICNUM-tlist;
+    if(CanPicnum==0){
+    	CanPicnum=-1;
+    }
+    //删除图片的路径
+    var PRO_DEL_PIC="{y!:U('System/del_pic',array('table'=>'slide','field'=>'PicUrl'))}";
+    //产品ID
+    var PID="{y!$slide.ID}";
+</script>
+<script type="text/javascript" src="{y!:C('HTStyle')}/webuploader/upcon.js"></script>
+						</li>
+					</ul>
+				</div>
+				<input type="submit" class="but fl" value="提交" >
+				<a href="{y!:U('slide')}" class="ret ml10">返回</a>
+			</form>
+			
+		</div>		
+	</div>
+	<div class="cl"></div>
+
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

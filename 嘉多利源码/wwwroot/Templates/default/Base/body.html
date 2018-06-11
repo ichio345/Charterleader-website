@@ -1,0 +1,32 @@
+<include file="Common/head"/>
+<!-- 当前位置 begin -->
+<div class="path">
+    <div class="wrap">
+        <span>
+        <!-- 面包屑导航 -->
+				{:L('position')}:<a href="{:U('Index/index')}">{:L('home')}</a> > <position />
+        </span>
+    </div>
+</div>
+<!-- 当前位置 end -->
+
+<!-- 内页栏目 begin -->
+<if condition="$_GET['cid'] eq 244 or $_GET['cid'] eq 309 ">
+    
+    <else />
+    <div class="ny-column">
+        <div class="wrap">
+            <h2><bname >{$bname.name}</bname></h2>
+            <p><bname >{$bname.remark}</bname></p>
+        </div>
+    </div>
+    
+ </if>
+
+
+<!-- 内页栏目 end -->
+
+<div class="ny-content">
+    <block name='content'></block>
+</div>
+<include file="Common/footer"/>

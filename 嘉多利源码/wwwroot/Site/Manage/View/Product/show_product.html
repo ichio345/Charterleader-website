@@ -1,0 +1,24 @@
+<include file="Commen/head"/>
+<div class="main">
+	<include file="Commen/left"/>
+	<div class="main_right">
+	<div class="title"><span></span><strong>产品内容</strong></div>
+		<div class="content">
+			<h1 class="con_title">{y!$se_art.Title}</h1>
+			<p class="info">
+				发布时间：{y!$Rdate} &nbsp;&nbsp;
+				所属分类：{y!$se_art.cname}&nbsp;&nbsp;
+				作者：{y!$se_art.Auth}
+			</p>
+			<div class="con">
+				{y!$se_art.Content}
+			</div>
+			<a href="{y!:U('index')}">返回</a>
+		</div>		
+	</div>
+	<div class="cl"></div>
+
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

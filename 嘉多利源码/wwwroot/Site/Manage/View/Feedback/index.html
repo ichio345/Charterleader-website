@@ -1,0 +1,64 @@
+<include file="Common/head"/>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+	<div class="title"><span></span><strong>留言列表</strong></div>
+		<div class="list">
+		<!-- 提交选定要删除的列表 -->
+		<form action="{y!:U('Feedback/delete_feedback')}" id='form' method="post">
+			<table id='playList' cellpadding="0" cellspacing="0">
+				<tr>
+					<th width="8%">留言ID</th>
+					<th width="8%">留言人</th>
+					<th width="12%">留言日期</th>
+					<th>留言标题</th>
+					<th width="15%" style="text-align:right;border:none;">操作</th>
+				</tr>	
+				<volist name="feedback_list" id="vo" empty="$empty" >
+					<tr>
+						<td width="7%">
+						<input type="checkbox" class="sj" name="del[]" value="{y!$vo.ID}" />&nbsp;&nbsp;{y!$vo.ID}
+						</td>
+						<td width="8%"><a href="javascript:;" onclick="look({y!$vo.ID})">{y!$vo.Name}</a></td>
+						<td width="12%">{y!$vo.Rdate|date='Y-m-d H:i:s',###}</td>
+						<td ><a href="javascript:;" onclick="look({y!$vo.ID})">{y!$vo.Title}</a></td>
+						<td width="15%" align="right" style="border-right:0" >
+							<a href="javascript:;" onclick="look({y!$vo.ID})">[查看详细]</a> 
+							<a href="{y!:U('delete_feedback',array('aid'=>$vo['ID'],'p' => $_GET['p'],'bz' => 1))}" onclick="return confirm('你确定要删除吗?')"><font color="#ff7200">[删除]</font></a>
+						</td>	
+					</tr>
+				</volist>
+				<tr class="bottom">
+					<td colspan="5">
+						<input type="hidden" name="p" value="{y!$_GET['p']}">
+						<input type="button" value="全选/全不选" id="selectAll" /> 
+						<input type="button" value="反选" id="reverse" />
+						<input type="button" value="删除选定" class="list_del">
+					{y!$show}
+					</td>
+				</tr>
+				<script type="text/javascript">
+				function look($id){
+					$.post('{y!:U("show_feedback")}', {
+						'id':$id
+					}, function(str){
+						    layer.open({
+						    type: 1,
+						    title:'查看反馈详细',
+						    skin: 'layui-layer-rim', //加上边框
+						    area: ['600px', '400px'], //宽高
+						    content:str
+						});
+					})
+					
+				}					   
+				</script>
+			</table>
+		</form>
+		</div>		
+	</div>
+	<div class="cl"></div>	
+</div>
+<include file="Common/footer"/>
+</body>
+</html>

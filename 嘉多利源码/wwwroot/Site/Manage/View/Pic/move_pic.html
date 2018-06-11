@@ -1,0 +1,33 @@
+<include file="Common/head"/>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+		<div class="title"><span class="add"></span><strong>移动内容</strong></div>
+		<div class="mrclass jz">
+			<form action="{y!:U('move_pic_form')}" method="post" id="yzform" enctype="multipart/form-data">
+			<div class="mrlist">
+				<ul>
+					<li>
+						<span class="mrtitle fl">目标分类：</span>
+						<select name="classid" class="mrselect">
+							<volist name="class" id='vo'>
+								<option value="{y!$vo.ID}">&nbsp;{y!$vo.html}{y!$vo.Name}</option>
+							</volist>
+						</select>
+					</li>
+					<li>
+						<span class="mrtitle fl">内容ID：</span>
+						<input type="text" name='moveid' class='mrinput' value="{y!$moveid}" />
+					</li>					
+				</ul>
+			</div>
+				<input type="submit" name="dosubmit" class="but" value="移动" />
+				<a href="{y!:U('index')}" class="ret">返回</a>
+			</form>
+		</div>
+	</div>
+	<div class="cl"></div>	
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

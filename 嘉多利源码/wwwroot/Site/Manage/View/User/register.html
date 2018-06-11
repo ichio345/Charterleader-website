@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>用户注册</title>
+	<link rel="stylesheet" href="__ROOT__/Template/Common/css/Layout.css">
+	<script type="text/javascript" src="__ROOT__/Template/Common/js/jquery1.42.min.js"></script>
+</head>
+<body>
+	<form action="__URL__/register" method='post' class="rform">
+		<div class="register">
+			<ul>
+				<li><span>会员名：</span><input type="text" name='username' class="username text"></li>
+				<li><span>密码：</span><input type="text" name="password" class="password text"></li>
+				<li><span>确认密码：</span><input type="text" class="passwordto text"></li>
+				<li><input type="button" name='dosubmit' class="sub but" value="注册"><input type="reset" class="but" value='重置'></li>
+				<p class="con">如果您已经有本站的账号，请去<a href="[y!:U('User/Login')]" style="color:#f30">登录</a></p>
+			</ul>
+		</div>			
+	</form>	
+	<script text="javascript">
+							
+		$('.username').blur(function(){
+			var aa = $.trim($(this).val())
+			if(aa){ 
+				$.post("__URL__/slect_register", {
+								username: aa
+					}, function(a){
+						//获取文本内容
+						if (a > 0) {
+							$('.username').nextAll('b').remove();															
+							$('.username').after("<b>对不起，该会员名已被注册了！</b>")					
+						}
+						else {								
+							$('.username').nextAll('b').remove();
+							$('.username').after("<b>可以注册！</b>")	
+							
+							$('.passwordto').blur(function(){
+								var password=$.trim($(".password").val())
+								var passwordto=$.trim($(".passwordto").val())
+								if(password!=''&&password==passwordto){
+									$(this).nextAll('b').remove();
+									$(this).after("<b>可以注册！</b>")
+									$('.sub').click(function(){
+										$('.rform').submit();	
+									})
+								}else{
+									$(this).nextAll('b').remove();
+									$(this).after("<b>两次输入不一样！</b>")
+								}		
+							})
+							
+																		
+					}							
+				});
+			}else{
+				$('.username').nextAll('b').remove();
+				$('.username').after("<b>用户名不能为空！</b>")
+			}		
+		})
+	</script>
+</body>
+</html>

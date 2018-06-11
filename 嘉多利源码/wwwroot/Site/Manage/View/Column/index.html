@@ -1,0 +1,80 @@
+<include file="Common/head"/>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+	<div class="title"><span></span><strong>栏目列表</strong><a href="{y!:U('add_class')}" class="op">添加栏目</a></div>
+		<div class="list">
+			<form action="{y!:U('Column/sort_column')}" method="post">
+			<table cellpadding="0" cellspacing="0" class="table-hover ">
+				<tr>
+					<th width="6%">编号</th>
+					<th width="25%">栏目名称</th>
+					<th width="6%">级别</th>
+					<th width="8%">模型名称</th>
+					<th width="5%">排序</th>
+					<th width="8%">内容数量</th>
+					<th width="8%">前台显示</th>
+					<th align="right" style="text-align:right;border:none;">操作</th>
+				</tr>	
+				<volist name="column" id="vo" empty="$empty" >
+				<tr>
+					<td width="6%">{y!$vo.ID}</td>
+					<td width="25%">{y!$vo.html}<a href="{y!$vo.curl}" class="fontlan">{y!$vo.Name}</a></td>
+					<td width="6%">{y!$vo.level}</td>
+					<td width="8%">{y!$vo.Title}</td>
+					<td width="5%">
+						<input type="text" class="csort" name="{y!$vo.ID}" value="{y!$vo.Sort}">
+					</td>
+					<td align="center">{y!$vo.contentNum}</td>
+					<td align="center">
+						<if condition="$vo['Status'] eq 1"> 
+						<span onclick="ajax_click(this,{y!$vo.ID})" class='glyphicon glyphicon-ok ico_yes'></span> 
+						<else/>
+						<span onclick="ajax_click(this,{y!$vo.ID})" class='glyphicon glyphicon-remove ico_no'></span>
+						</if>
+					</td>
+					
+					<td align="right" style="border-right:0">
+						<if condition="C(ClumnPath) lt $vo['depth']">
+						<a href="" style="color:#999">[添加子栏目]</a>
+						<else/>
+						<a href="{y!:U('add_class',array('cid'=>$vo["ID"],'mid'=>$vo['ModelID']))}">[添加子栏目]</a>
+						</if>
+						<a href="{y!:U('updata_class',array('cid'=>$vo['ID']))}" >[修改]</a> 
+						<if condition="$vo['Child'] eq 0">
+							<a href="{y!:U('del_class',array('cid'=>$vo['ID']))}" onclick="return confirm('你确定要删除吗?')" >[删除]</a>
+						<else/>
+							<a href="javascript:void(0)" onclick="alert('对不起！此栏目下已有子栏目，请先删除子栏目再删除！')" style="color:#ccc" >[删除]</a>
+						</if>
+					</td>	
+				</tr>
+				</volist>
+				<script type="text/javascript">
+					function ajax_click(obj,a){
+						$.post('{y!:U("ajax_click_column")}',{
+							cid:a,
+						},function(data,status){
+							if(data==1){
+								if($(obj).hasClass('glyphicon-ok')){
+									$(obj).removeClass('glyphicon-ok ico_yes').addClass('glyphicon-remove ico_no');
+									return;
+								}
+								if($(obj).hasClass('glyphicon-remove')){
+									$(obj).removeClass('glyphicon-remove ico_no').addClass('glyphicon-ok ico_yes');
+								}							
+							}
+						})
+					}
+				</script>
+			</table>
+			<br>
+			<input type="submit" style="margin:0" class="but" value="更新排序">
+			</form>
+		</div>		
+	</div>
+	<div class="cl"></div>
+	
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

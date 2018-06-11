@@ -1,0 +1,88 @@
+<include file="Common/head"/>
+	<script type="text/javascript">
+			window.UEDITOR_HOME_URL="__ROOT__/Site/Common/Plug/Ueditor/";
+			window.onload=function(){
+				UE.getEditor('ueditor');
+			}
+	</script>
+	<script type="text/javascript" src="__ROOT__/Site/Common/Plug/Ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" src="__ROOT__/Site/Common/Plug/Ueditor/ueditor.all.min.js"></script>
+	<!-- 图片预览 -->
+	<script type="text/javascript" src="{y!:C('HTStyle')}/js/UpImage.js"></script>
+	<script type="text/javascript" src="{y!:C('HTStyle')}/js/ajaxfileupload.js"></script>
+<div class="main">
+<!-- 调用左侧 -->
+	<include file="Common/left"/>
+	<div class="main_right">
+		<div class="title"><span class="add"></span><strong>添加产品</strong></div>
+		<div class="mrclass jz">
+			<form action="{y!:U('add_product_from')}" method="post" enctype="multipart/form-data" >
+			<div class="mrlist">
+				<ul>
+					<li>
+						<span class="mrtitle fl">产品标题：</span>
+						<input type="text" name='title' class='mrinput'  />
+					</li>
+					<li>
+						<span class="mrtitle fl">所属栏目：</span>
+						<input type="hidden" name="tablename" value="{y!$product[0]['TableName']}">
+						<select name="classid" class="mrselect">
+							<volist name="product" id='vo'>
+								<option value="{y!$vo.ID}">{y!$vo.html}{y!$vo.Name}</option>
+							</volist>
+						</select>
+					</li>
+					<li>
+						<span class="mrtitle fl">缩略图：</span>
+						<!-- <input type="file" name='file' onchange="previewImage(this)" /> -->
+						<input type="button" class="uppic"  value="上传图片">			
+						<div id="preview" style="display:block">
+						   
+						</div>
+						<script type="text/javascript">
+						 $(".uppic").click(function(){
+						 	$("#preview").append("<input type='file' name='file[]' onchange='previewImage(this)' >")
+						 	$("#preview").find("input:last").click().css({'display':'none'});
+						 })
+						</script>
+					</li>
+					<li>
+						<span class="mrtitle fl">自定义属性：</span>
+						<span>水印：</span>
+						<input type="checkbox" checked="checked" value="1" name='water'/>
+						&nbsp;&nbsp;
+						<span>推荐：</span>
+						<input type="checkbox" checked="checked" value="1" name='Recommend'/>
+					</li>
+					<li>
+						<span class="mrtitle fl">产品价格：</span>
+						<input type="text" name="Price" class="mrinput">
+					</li>
+					
+					<li>
+						<span class="mrtitle fl">关键词：</span>
+						<input type="text" name='keyword' class="mrinput">
+						<span>多关键词之间用“,”隔开</span>
+					</li>
+					<li>
+						<span class="mrtitle fl">简单描述：</span>
+						<textarea name='description' class="mrtext"></textarea>
+					</li>
+					<li>
+						<span class="mrtitle fl">内容：</span>
+						<div class="mrcontent fl">
+						<textarea name="content" id='ueditor'></textarea>
+						</div>
+						<div class="cl"></div>
+					</li>
+				</ul>
+			</div>			
+						
+				<input type="submit" name="dosubmit" class="but" value="添加" />
+			</form>
+		</div>
+	</div>
+	<div class="cl"></div>	
+</div>
+</body>
+</html>

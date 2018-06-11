@@ -1,0 +1,46 @@
+<div class="head">
+	<div class="logo fl">
+		<p style="padding-left:25px;margin:20px 0 5px;font-size:18px;color:#f8f8f8">{y!$htname}
+		
+		</p>
+		<span style='padding-left:25px;font-size:15px;color:#999'><span class='glyphicon glyphicon-leaf' style='color:#7bc955'></span>&nbsp;&nbsp;网站管理系统</span>
+	</div>
+	<div class="userinfo fl">
+		<div class="inlogin">
+			<ul>
+				<li>
+					<span style="color:#c1bfbf">欢迎，</span>
+					<font color="#fb9319">{y!$Think.session.Uname}</font> 
+				</li>
+				<li>
+					<span style="color:#666464">{y!$Think.session.Ustatus}</span>  <?php if(session('Uname') !== "jsydl"){ ?><a href="{y!:U('User/updata_admin',array('ID'=>$vo['ID']))}"><font color="#fb9319">修改密码</font></a><?php }?>
+				 	<a href="{y!:U('User/userout')}" style="margin-left:5px;color:#e4d207">退出</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="head_right fr">
+		<div class="admin fl">
+			<ul>
+				<li><span class="h_ico" style="background-position:-5px -5px"></span><a href="{y!:U("Index/index")}">后台首页</a></li>
+				<li>
+					<span class="h_ico" style="background-position:-5px -30px"></span>
+					<div class="btn-group admin_btn">
+					    {y!$_SESSION['lngname']}
+					    <span style="color:#ffea00" class="dropdown-toggle"  data-toggle="dropdown" aria-expanded="false"> 
+					    	<span class="glyphicon glyphicon-triangle-bottom" style="margin-left:3px;cursor:pointer"></span>
+					    </span>
+					  <dl class="dropdown-menu btn_menu" role="menu">
+					  <foreach name="lang" item="vo">
+					    <dd><a href="{y!:U("Common/lang",array("edition"=>$vo['id']))}">{y!$vo.name}</a></dd>
+					  </foreach>
+					  </dl>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="home fl">
+			<span></span><a href="{y!:U('Home/Index/index')}" target="_blank">网站首页</a>
+		</div>			
+	</div>		
+</div>

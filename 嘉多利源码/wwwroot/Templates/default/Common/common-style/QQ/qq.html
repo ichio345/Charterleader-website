@@ -1,0 +1,38 @@
+<script type="text/javascript">
+	$(function(){
+		$.post("http://localhost/think/Site/Common/Conf/qq.php",{},function(data,status){
+			alert(data);
+		})
+	})
+</script>
+
+<script type="text/javascript" src="http://localhost/think/Site/Common/Plug/QQ/js/qq.js"></script>
+<link type="text/css" rel="stylesheet" href="http://localhost/think/Site/Common/Plug/QQ/css/layout.css" />
+  <div class="float-contact" id="float-contact" style="position: fixed;z-index:1000; right: 1px; display: none;">
+	<a title="点击收缩" href="javascript:void(0);" onclick="show()" class="qqclose" id="float-contact-close">点击收缩</a>
+	<div class="qqcontainer">
+		<div class="qq">
+			<h3 class="qqtitle">在线客服</h3>
+			<ul class="qqbtn">
+				<li><a title="客服" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456&site=qq&menu=yes">业务咨询</a></li>
+				<li><a title="客服" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456&site=qq&menu=yes">业务咨询</a></li>
+				<li><a title="客服" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456&site=qq&menu=yes">投诉建议</a></li>		
+			</ul>
+		</div>
+		<div class="qqtel">
+			<h3 class="qqtitle">咨询热线</h3>
+			<div class="qqcontent">12345678</div>
+			<div class="qqcontent">12345678 </div>
+		</div>
+	</div>
+	<a href="http://www.jsydl.com" class="myqqlink">易动力</a>
+
+</div>
+
+<div class="float-contact-mini" id="float-contact-mini" style="display: block; position: fixed; right: 1px;">
+	<a href="javascript:void(0);" onclick="show()" id="float-contact-mini">点击展示</a>
+</div>
+
+       
+ 
+          

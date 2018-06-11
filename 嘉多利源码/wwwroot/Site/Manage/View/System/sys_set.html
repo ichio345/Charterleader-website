@@ -1,0 +1,95 @@
+<include file="Common/head"/>
+<script type="text/javascript" src="{y!:C('HTStyle')}/js/jquery.SuperSlide.2.1.1.js"></script>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+	<div class="title"><span class='add'></span><strong>系统设置</strong></div>
+		<div class="mrclass">		
+			<div class="mrlist">
+				<div class="slideTxtBox">
+					<div class="hd">
+						<ul>
+							<li>基本设置</li>
+							<li>seo设置</li>
+						</ul>
+					</div>
+					<div class="bd">
+						<ul>
+						<form action="{y!:U('System/setsite_from')}" method="post">
+							<li>
+								<span class="mrtitle fl">网站名:</span>
+								<input type="text" class="mrinput" name="sitename" value="{y!$sys.$lng.sitename}">
+							</li>
+							<li>
+								<span class="mrtitle fl">网站备案号:</span>
+								<input type="text" class="mrinput" name="beian" value="{y!$sys.$lng.beian}">
+							</li>
+							<li>
+								<span class="mrtitle fl">网站统计:</span>
+								<textarea style="width:600px;height:80px;" name="wztj">{y!$sys.$lng.wztj}</textarea>
+							</li>
+							<li>
+								<span class="mrtitle fl">联系地址:</span>
+								<textarea style="width:600px;height:30px;" name="address">{y!$sys.$lng.address}</textarea>
+							</li>
+							<li>
+								<span class="mrtitle fl">联系电话:</span>
+								<input name="tel" value="{y!$sys.$lng.tel}" class="mrinput">
+							</li>
+							<li>
+								<span class="mrtitle fl">手机:</span>
+								<input name="phone" value="{y!$sys.$lng.phone}" class="mrinput">
+							</li>
+							<li>
+								<span class="mrtitle fl">邮箱:</span>
+								<input name="email" value="{y!$sys.$lng.email}" class="mrinput">
+							</li>
+                             <li>
+								<span class="mrtitle fl">QQ:</span>
+								<input name="qq" value="{y!$sys.$lng.qq}" class="mrinput">
+							</li>
+							<input type="submit" class="but fl" value="提交" >
+							<a href="{y!:U('index')}" class="ret ml10">返回</a>
+						</form>
+						</ul>
+						<ul>
+						<form action="{y!:U('System/seo_form')}" method="post">
+							<li>
+								<span class="mrtitle fl">网站标题：</span>
+								<input type="text" name="title" class='mrinput' style="width:250px" value="{y!$seo.$lng.title}">
+							</li>
+							<li>
+								<span class="mrtitle fl">网站关键词：</span>
+								<input type="hidden" name="id" value="{y!$seo.id}">
+								<input type="text" name="keywords" class="mrinput" style="width:450px" value="{y!$seo.$lng.keywords}">&nbsp;&nbsp;( 多个关键词请用 "," 隔开 )
+							</li>
+							<li>
+								<span class="mrtitle fl">关键词描述：</span>
+								<textarea name="description" class="mrtext" style="width:450px">{y!$seo.$lng.description}</textarea>
+							</li>
+								<input type="submit" class="but fl" value="提交" >
+								<a href="{y!:U('index')}" class="ret ml10">返回</a>
+						</form>
+						</ul>
+				</div>
+				
+			
+<style type="text/css">
+	/* 本例子css */
+.slideTxtBox{  border:1px solid #ddd; text-align:left; margin:40px; }
+.slideTxtBox .hd{ height:35px; line-height:35px; background:#f4f4f4; padding:0 10px 0 20px;   border-bottom:1px solid #ddd;  position:relative; }
+.slideTxtBox .hd ul{ float:left;  position:absolute; left:20px; top:-1px; height:32px; padding:0 !important;   }
+.slideTxtBox .hd ul li{ float:left; padding:0 15px; cursor:pointer;  }
+.slideTxtBox .hd ul li.on{ height:35px;  background:#fff; border:1px solid #ddd; border-bottom:2px solid #fff; }
+.slideTxtBox .bd ul{padding:20px 15px 10px;}
+
+</style>
+<script type="text/javascript">jQuery(".slideTxtBox").slide({trigger:"click"});</script>
+		</div>		
+	</div>
+	<div class="cl"></div>
+
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

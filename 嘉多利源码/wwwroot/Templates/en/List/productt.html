@@ -1,0 +1,51 @@
+<extend name="Base:body" />
+
+
+<block name='content'>
+
+
+
+
+<div class="wrap">
+       <ul class="ny-proclass">
+          <classify limit='50' id='264' >
+<php>$noid=$v['ID'];</php>
+           <li>
+               <div class="title">
+                   <h2><a href="{$classify.link}">{$classify.title}</a></h2>
+                   <dl>
+                       <classifyy limit='10' id="$noid" >
+                       <dd><a href="{$classifyy.link}">{$classifyy.title}</a><em>/</em></dd>
+                       </classifyy>
+                   </dl>
+               </div>
+               <div class="content">
+                   <div class="detail bg2">
+                     <!--   <h3>{$classify.title}</h3> -->
+                       <p>{$classify.desc}</p>
+                       <a href="{$classify.link}" class="more">More+</a>
+                       <img src="{$classify.src}" height="135" width="190">
+                   </div>   
+                   <ul class="ny-latest">
+                      <product limit='10' titlelen='18' id='$noid' >
+                       <li>
+                           <a href="{$product.link}">
+                               <div class="pic">
+                                   <img src="{$product.src}" height="182" width="230" alt="{$product.title}" title="{$product.title}">
+                               </div>
+                               <a href="{$product.link}" class="name">{$product.title}</a>
+                           </a>
+                       </li>
+                      </product>
+                   </ul>
+               </div>
+           </li>
+<div class="clear"></div>
+          </classify>
+       </ul>
+    </div>
+
+
+
+
+</block>

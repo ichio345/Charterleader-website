@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="{y!:C('HTStyle')}/webuploader/webuploader.css">
+<link rel="stylesheet" type="text/css" href="{y!:C('HTStyle')}/webuploader/webup-demo.css">
+<script type="text/javascript" src="{y!:C('HTStyle')}/webuploader/webuploader.min.js"></script>
+
+<!-- 如果要单独的修改配置  需再次引入 upcon.js 文件 -->
+<script type="text/javascript">
+    // 添加全局站点信息
+    var BASE_URL = "{y!:C('HTStyle')}/webuploader";
+    //var SERVER_URL="www.baidu.com";
+    var SERVER_URL="{y!:U('Common/uploadImg')}";
+    //总共可以上传几张图片
+    var PICNUM=5;
+    //还可以上传几张图片
+    var CanPicnum=PICNUM;
+    //设置单个图片大小
+    var PicSize=300*1024;
+</script>
+<script type="text/javascript" src="{y!:C('HTStyle')}/webuploader/upcon.js"></script>

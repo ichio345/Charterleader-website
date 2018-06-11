@@ -1,0 +1,45 @@
+<if condition="$qq.is_index eq 1">
+<div class="zx-service">
+	<div class="service-box">
+		<span class="text">在线咨询</span>
+		<ul>
+			<foreach name="qq.qq" item="vo" key="k">
+            <notempty name="vo">
+			<li>
+				<a href="http://wpa.qq.com/msgrd?v=3&uin={$vo}&site=qq&menu=yes" target="_blank">
+					<span class="pic"><img src="{:C('TMURL')}/images/kf02.png" /></span>
+					<em>{$qq['qqtitle'][$k]}</em>				
+				</a>			
+			</li>
+            </notempty >
+            </foreach>
+			<li>
+				<a href="javascript:void(0)">
+					<span class="pic"><img src="{:C('TMURL')}/images/kf03.png" /></span>
+					<em>微信咨询</em>
+					<p><img src="{:C('TMURL')}/images/qcode.jpg" /></p>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)">
+					<span class="pic"><img src="{:C('TMURL')}/images/kf04.png" /></span>
+					<em>联系方式</em>
+                    <foreach name="qq.qqtel" item="tel">
+					<notempty name="tel">
+					<p>{$tel}</p>
+					</notempty>
+					</foreach>
+                </a>
+			</li>
+		</ul>
+		<span class="arrow-top"></span>
+	</div>
+	<div class="service-arrow">
+		<span><a href="#top"></a></span>
+	</div>
+</div>
+</if>
+     
+
+ 
+          

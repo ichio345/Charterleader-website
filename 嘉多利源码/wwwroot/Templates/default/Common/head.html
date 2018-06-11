@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=yes">  
+<meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="">
+<meta name="format-detection" content="telephone=no">
+<title>苏州嘉多利精密电子有限公司</title>
+<script src="{:C('TMURL')}/js/jquery.min.js"></script>
+<script src="{:C('TMURL')}/js/wapSlide.js"></script>
+<script src="{:C('TMURL')}/js/slide.js"></script>
+<script src="{:C('TMURL')}/js/iscroll.js"></script>
+<script src="{:C('TMURL')}/js/drawer.min.js"></script>
+<script src="{:C('TMURL')}/js/select.js"></script>
+<script src="{:C('TMURL')}/js/jquery.carousel.js"></script>
+<script type="text/javascript" src="{:C('TMURL')}/js/swiper.min.js" ></script>
+<!--[if lt IE 9]>
+<script src="{:C('TMURL')}/js/respond.min.js"></script>
+<script src="{:C('TMURL')}/js/html5shiv.min.js"></script>
+<![endif]-->
+<!--[if IE]><link href="{:C('TMURL')}/css/ie.css" rel="stylesheet" type="text/css"><![endif]-->
+<link href="{:C('TMURL')}/css/normalize.css" rel="stylesheet" type="text/css">
+<link href="{:C('TMURL')}/css/typo.css" rel="stylesheet" type="text/css">
+<link href="{:C('TMURL')}/css/wapSlide.css" rel="stylesheet" type="text/css">
+<link href="{:C('TMURL')}/css/style.css" rel="stylesheet" type="text/css">
+<link href="{:C('TMURL')}/css/wap.css" rel="stylesheet" type="text/css">
+<link href="{:C('TMURL')}/css/drawer.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{:C('TMURL')}/css/Layout.css" />
+<link rel="stylesheet" href="{:C('TMURL')}/css/swiper.min.css" />
+<link rel="stylesheet" href="{:C('TMURL')}/css/media.css" />
+</head>
+<body class="drawer drawer--right">
+
+<!--头部 begin-->
+<div class="header">
+	<div class="wrap">
+    	
+        <!--logo begin-->
+        <div class="logo pc ">
+        	<span class="pic">
+            	<a href="{:U('/index')}"><h1><img src="{:C('TMURL')}/images/logo.png" alt="{$sitename}" /></h1></a>
+            </span>
+        </div>
+        <!--logo end-->
+
+        <!-- wap logo begin-->
+        <div class="logo wap">
+            <span class="pic">
+                <img src="{:C('TMURL')}/images/logo1.png" />
+            </span>
+        </div>
+        <!-- wap logo end -->
+  <!-- 语言版本 begin -->
+        <div class="lang-ver">
+            <ul class="ver">
+                <li  class="on"><a href="{:U('/index')}">中文</a></li>
+                <li><a href="">|</a></li>
+                <li><a href="{:U('Common/lang',array('lng'=>'en'))}">ENGLISH</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <!-- 语言版本 end -->
+
+    </div>
+
+</div>
+        <!-- 手机语言版本 begin -->
+    <div class="lang-ver1">
+            <ul class="ver">
+                <li  class="on"><a href="{:U('/index')}"><img src="{:C('TMURL')}/images/cn.png"  alt="中文版">中文</a></li>
+                <li><a href="{:U('Common/lang',array('lng'=>'en'))}"><img src="{:C('TMURL')}/images/en.png"  alt="English">EN</a></li>
+            </ul>
+            <div class="clear"></div>
+            <img src="images/ver-pic.png"  alt="精准服务，客户满意" class="ver-pic pc">
+        </div>
+    <!-- 语言版本 end -->
+<!--头部 end-->
+<script type="text/javascript">    
+function funcInitSel(e){        
+    var objUL = e.getElementsByTagName("ul")[0];
+    document.onclick = function(){                
+        if(e.getAttribute("state")=="0")
+        objUL.style.display = "none";
+    }
+    
+    var objTxt = e.getElementsByTagName("input")[0];
+    var arrLi = objUL.getElementsByTagName("li");
+
+    for(var i=0;i<arrLi.length;i++){
+        arrLi[i].onmouseover = function(){
+            this.className = "on";                
+        }
+        arrLi[i].onmouseout = function(){
+            this.className = "";
+        }
+        
+        arrLi[i].onclick = function(){
+            objTxt.value = this.innerHTML;                
+            e.setAttribute("state",0);
+            objUL.style.display = "none";  
+        }
+    }
+}
+
+function funcSel(e){                 
+    var objUL = e.getElementsByTagName("ul")[0];         
+    if(objUL.style.display == "none" && e.getAttribute("state") == "1"){
+        objUL.style.display = "";                 
+    }if(e.offsetWidth > objUL.offsetWidth){
+        objUL.style.width=e.offsetWidth-2 + "px";            
+    }         
+}
+
+function funcSetOn(e,v){  
+    if(e.getAttribute("state") == ""){
+        funcInitSel(e);                                   
+    }
+    e.setAttribute("state",v);     
+}
+
+</script>
+
+
+<div class="clear"></div>
+
+<!--导航 -->
+<div class="nav pc">
+	<div class="wrap">
+    	<ul>
+            <li><em><a href="{:U('/index')}" <?php if($_GET['cid']==""){ ?>class="now"<?php } ?>>网站首页</a></em></li>
+            <menu>
+            <li><em><a href="{$menulist.link}" {$menulist.current} {$menulist.target}>{$menulist.name}</a></em>
+                    <if  condition="$menulist.find neq null">
+                        <dl>
+                            <foreach name="menulist.find" item='vo'>
+                            <dd><a href="{$vo.link}">{$vo.name}</a></dd>
+                            </foreach>
+                        </dl>
+                    </if>
+            </li>
+            </menu>
+        </ul>
+    </div>
+</div>
+<!--导航 -->
+
+<div class="clear"></div>
+
+<!--banner -->
+
+<if condition="$_GET['cid'] eq 244">
+
+<else />
+    <div id="slideBox" class="slideBox">
+            <div class="bd">
+                <ul>
+                    <banner >
+                        <li>
+                            <a class="pic" href="{$banner.link}"><img src="{$banner.src}" /></a>
+                        </li>
+                    </banner>
+
+                </ul>
+            </div>
+            <span class="prev hidden-xs hidden-sm"></span>
+            <span class="next hidden-xs hidden-sm"></span>
+            <ul class="hd">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <div id="slideBox1" class="slideBox1">
+            <div class="bd">
+                <ul>
+                    <banner >
+                        <li>
+                            <a class="pic" href="__ROOT__/product240.html"><img src="{:C('TMURL')}/images/banner1.jpg" /></a>
+                        </li>
+                        <li>
+                            <a class="pic" href="__ROOT__/product240.html"><img src="{:C('TMURL')}/images/banner2.jpg" /></a>
+                        </li>
+                        <li>
+                            <a class="pic" href="__ROOT__/product240.html"><img src="{:C('TMURL')}/images/banner3.jpg" /></a>
+                        </li>
+                        <li>
+                            <a class="pic" href="__ROOT__/product240.html"><img src="{:C('TMURL')}/images/banner4.jpg" /></a>
+                        </li>
+                    </banner>
+
+                </ul>
+            </div>
+            <span class="prev hidden-xs hidden-sm"></span>
+            <span class="next hidden-xs hidden-sm"></span>
+            <ul class="hd">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+
+        <script type="text/javascript" src="{:C('TMURL')}/js/TouchSlide.1.1.js" ></script>
+        <script>
+        	
+        	
+        	
+        
+          jQuery("#slideBox").slide({
+          	mainCell:".bd ul",mainCell:".bd ul",
+                effect:"leftLoop",
+               delayTime:800,
+               interTime:5500,
+              autoPlay:true,//自动播放
+              mouseOverStop:true});  
+		
+            
+             TouchSlide({ 
+                slideCell:"#slideBox1", 
+                titCell:".hd li",
+                mainCell:".bd ul",
+                effect:"leftLoop",
+              autoPlay:true//自动播放
+            });
+            TouchSlide({ 
+                slideCell:"#news_slide",
+                mainCell:".bd ul",
+                effect:"leftLoop",
+                autoPlay:true//自动播放
+            });
+        </script>
+
+<!--banner -->
+</if>
+<div class="clear"></div>
+<div class="i-menu">
+  <div class="container-s">
+      <ul class="i-menu-list c txt-c">
+        <li><a href="{:U('/index')}">网站首页</a></li>
+        <menu>
+            <li><a href="{$menulist.link}">{$menulist.name}</a></li>
+           </menu>
+      </ul>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="main_left fl" id="firstpane">
+	<dl>
+	<volist name='data' id='vo'>
+		<foreach name='vo.child' item='kzq'>
+			
+				<dt class="title menu_head">
+					<span class="{y!$kzq.name}"></span><b>{y!$kzq.title}</b>
+				</dt>
+				<dd class="menu_body <if condition="$kzq.name eq $Think.CONTROLLER_NAME"> on </if>">
+					<ul>
+					<foreach name="kzq.child" item='ff'>
+						<li>
+						<span class="list_ico"></span>
+						<a <if  condition="$kzq.name eq $Think.CONTROLLER_NAME"><if condition="$ff.name eq $Think.ACTION_NAME" >class="on"</if></if> href="__APP__/{y!$vo.name}/{y!$kzq.name}/{y!$ff.name}" >{y!$ff.title}
+						</a>
+
+						</li>
+					</foreach>	
+					</ul>
+				</dd>				
+		
+		</foreach>
+	</volist>
+	</dl>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#firstpane dd.on").show();
+	$("#firstpane .menu_head").click(function(){		
+		$(this).addClass("current").next(".menu_body").slideToggle(50).siblings(".menu_body").slideUp("slow");
+		$(this).siblings().removeClass("current");		
+	});
+});
+</script>

@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+ol, ul{ list-style: none outside none;}
+/* Clear Fix */ 
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;} 
+.clearfix{display:inline-block;} 
+/* Hide from IE Mac */ 
+.clearfix{display:block;} 
+/*图片放大镜样式*/
+.jqzoom{float:left;border:none;position:relative;padding:0px;cursor:pointer;margin:0px;display:block;}
+.jqzoom img{max-height: 479px}
+.zoomdiv{z-index:100;position:absolute;top:0px;left:0px;width:601px;height:479px;background:#ffffff;border:1px solid #CCCCCC;display:none;text-align:center;overflow:hidden;}
+.jqZoomPup{z-index:10;visibility:hidden;position:absolute;top:0px;left:0px;width:20px;height:20px;background:#ffffff /*url(../images/zoom.png) 50% center no-repeat*/;opacity: 0.5;-moz-opacity: 0.5;-khtml-opacity: 0.5;filter: alpha(Opacity=50);}
+.jqZoomPup img{max-width: none;}
+/*图片小图预览列表*/
+.spec-preview{width:601px;height:479px;border:1px solid #fff;}
+.spec-scroll{clear:both;margin-top:20px;}
+
+.spec-scroll .items{width:601px;height:116px;overflow:hidden;}
+.spec-scroll .items ul{position:absolute;float:left;position:relative;width:999999px;height:116px;}
+.spec-scroll .items ul li{float:left;width:145px;text-align:center;margin-right: 7px;}
+.spec-scroll .items ul li img{border:1px solid #CCC;width:145px;}
+.spec-scroll .items ul li img:hover{border:1px solid #FF6600;}
+/*
+本代码由js代码网收集并编辑整理;
+尊重他人劳动成果;
+转载请保留js代码网链接 - http://www.jsdaima.com
+*/

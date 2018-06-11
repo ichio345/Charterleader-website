@@ -1,0 +1,125 @@
+<include file="Common/head"/>
+	<script type="text/javascript">
+			window.UEDITOR_HOME_URL="__ROOT__/Site/Common/Plug/Ueditor/";
+			window.onload=function(){
+				UE.getEditor('ueditor');
+				UE.getEditor('tedian');
+				UE.getEditor('shuoming');
+			}
+	</script>
+	<script type="text/javascript" src="__ROOT__/Site/Common/Plug/Ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" src="__ROOT__/Site/Common/Plug/Ueditor/ueditor.all.js"></script>
+	<!-- 图片预览 -->
+	<include file="Common/pic_js"/>
+<div class="main">
+<!-- 调用左侧 -->
+	<include file="Common/left"/>
+	<div class="main_right">
+		<div class="title"><span class="add"></span><strong>添加产品</strong></div>
+		<div class="mrclass jz">
+			<form action="{y!:U('add_product_from')}" id="yzform" method="post" enctype="multipart/form-data" >
+			<div class="mrlist">
+				<ul>
+					<li>
+						<span class="mrtitle fl">产品标题：</span>
+						<input type="text" name='title' class='mrinput'  />
+					</li>
+					<li>
+						<span class="mrtitle fl">所属栏目：</span>
+						<input type="hidden" name="tablename" value="{y!$product[0]['TableName']}">
+						<select name="classid" class="mrselect">
+							<volist name="product" id='vo'>
+								<option value="{y!$vo.ID}" <if condition='$vo.ID eq $_GET["cid"]'> selected="selected" </if>>{y!$vo.html}{y!$vo.Name}</option>
+							</volist>
+						</select>
+						&nbsp;&nbsp;&nbsp;&nbsp;首页显示
+						<input type="checkbox" value="1" name='is_index'/>
+					</li>
+
+					<!-- 自定义属性 -->
+					<foreach name="bltype" item="vo">
+						<if condition='$vo["type"] eq textarea'>
+							<li>
+								<input type="hidden" name="class_type[id][]" value="{y!$vo.id}">
+								<input type="hidden" name="class_type[key][{y!$vo.id}]" value="{y!$vo.name}" >
+								<input type="hidden" name="class_type[remark][{y!$vo.id}]" value="{y!$vo.remark}" >
+								<span class="mrtitle fl" style="text-decoration:underline;">{y!$vo.name}:</span>
+								<{y!$vo.type} name="class_type[value][{y!$vo.id}]" style='width:300px'></{y!$vo.type}>
+							</li>
+						<else/>
+							<li>
+								<input type="hidden" name="class_type[id][]" value="{y!$vo.id}">
+								<input type="hidden" name="class_type[key][{y!$vo.id}]" value="{y!$vo.name}" >
+								<input type="hidden" name="class_type[remark][{y!$vo.id}]" value="{y!$vo.remark}" >
+								<span class="mrtitle fl"><span style="text-decoration:underline;">{y!$vo.name}:</span></span>
+								<input name="class_type[value][{y!$vo.id}]" type="{y!$vo.type}" <if condition="$vo['type'] eq text" > class='mrinput' </if>>
+							</li>
+						</if>
+					</foreach>
+					
+					<li>
+						<span class="mrtitle fl">缩略图：</span> 
+						<div class="uploader">
+							<div id="uploader">
+								<div id="filePicker"></div>
+							    <div id="fileList" class="uploader-list"></div>
+							</div>	
+						</div>				
+					</li>
+					
+					<li>
+						<span class="mrtitle fl">排序：</span>
+						<input type="text" name="Sort" class="mrinput">
+					</li>
+					
+					<li>
+						<span class="mrtitle fl">点击次数：</span>
+						<input type="text" name="click" class="mrinput">
+					</li>
+
+					<li>
+						<span class="mrtitle fl">关键词：</span>
+						
+                        <textarea name='keyword' class="mrtext"></textarea>
+					</li>
+					<li>
+						<span class="mrtitle fl">简单描述：</span>
+						<textarea name='description' class="mrtext"></textarea>
+					</li>
+					<li>
+						<span class="mrtitle fl">产品特点：</span>
+						<div class="mrcontent fl">
+						<textarea name="content" id='ueditor'></textarea>
+						</div>
+						<div class="cl"></div>
+					</li>
+                    <li>
+						<span class="mrtitle fl">产品参数：</span>
+						<div class="mrcontent fl">
+						<textarea name="tedian" id='tedian'></textarea>
+						</div>
+						<div class="cl"></div>
+					</li>
+                    <li>
+						<span class="mrtitle fl">施工案例：</span>
+						<div class="mrcontent fl">
+						<textarea name="shuoming" id='shuoming'></textarea>
+						</div>
+						<div class="cl"></div>
+					</li>
+				</ul>
+			</div>
+				<div class="fixed_submit">
+					<input type="submit" name="dosubmit" class="fixed_submit_sub" value="添加" />
+					<a href="{y!:U('index')}" class="fixed_submit_ret">返回</a>
+				</div>			
+				<input type="submit" name="dosubmit" class="but" value="添加" />
+				<a href="{y!:U('index')}" class="ret">返回</a>
+			</form>
+		</div>
+	</div>
+	<div class="cl"></div>	
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

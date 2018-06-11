@@ -1,0 +1,40 @@
+<include file="Common/head"/>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+	<div class="title"><span></span><strong>网站信息</strong></div>
+		<div class="content">
+				<table width="100%">
+					<tr>
+						<td width="10%" >ThinkPHP版本:</td>
+						<td> 
+							{y!$Think.THINK_VERSION}
+						</td>
+					</tr>
+					<tr>
+						<td width="10%" >php版本：</td>
+						<td>
+							{y!$php}
+						</td>
+					</tr>
+					<tr>
+						<td width="10%" >mysql版本：</td>
+						<td>
+							{y!$mysql}
+						</td>
+					</tr>
+					<tr>
+						<td width="10%" >apache版本：</td>
+						<td>
+							{y!$apache}
+						</td>
+					</tr>
+				</table>
+			<a href="{y!:U('index')}">返回</a>
+		</div>		
+	</div>
+	<div class="cl"></div>
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

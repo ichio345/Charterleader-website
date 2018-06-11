@@ -1,0 +1,156 @@
+<extend name='Base:feedback' />
+<block name="content">
+	
+<link rel="stylesheet" type="text/css" href="{:C('TMURL')}/common-style/style.css">
+<script type="text/javascript" src="{:C('TMURL')}/common-style/jquery-1.4.2.min.js"></script>
+<script>
+  // var $jq= jQuery.noConflict(true);  
+  </script>
+
+  <script type="text/javascript">
+<!--
+function CheckForm(theForm)
+{
+	var pattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;   //验证邮箱正则
+	var sjyz = /^1[34578]\d{9}$/;    //验证手机号码正则
+	var  qqyz = /^[0-9]*$/ ;              //验证QQ    
+	var flag ;
+	if (theForm.title.value=="")
+	{
+		alert("标题不能为空！");
+		theForm.title.focus();
+		return false;
+	}
+	if (theForm.content.value=="")
+	{
+		alert("内容不能为空！");
+		theForm.content.focus();
+		return false;
+	}
+	if (theForm.name.value=="")
+	{
+		alert("联系人不能为空！");
+		theForm.name.focus();
+		return false;
+	}
+	if (theForm.tel.value=="")
+	{
+		alert("电话不能为空！");
+		theForm.tel.focus();
+		return false;
+	}
+
+	
+
+	if (theForm.qq.value!=="")
+	{
+		flag = qqyz.test(theForm.qq.value) ;
+		if (!(flag))
+		{
+			alert("请输入正确的QQ！");
+			theForm.qq.focus();
+			return false;
+		}
+	}
+
+	if (theForm.phone.value!=="")
+	{
+		flag = sjyz.test(theForm.phone.value) ;
+		if (!(flag))
+		{
+			alert("请输入正确的手机号码！");
+			theForm.phone.focus();
+			return false;
+		}
+	}
+
+	if (theForm.email.value!=="")
+	{
+		flag = pattern.test(theForm.email.value) ;
+		if (!(flag))
+		{
+			alert("请输入正确的邮箱！");
+			theForm.email.focus();
+			return false;
+		}
+	}
+	
+	if (theForm.code.value=="")
+	{
+		alert("请输入验证码！");
+		theForm.code.focus();
+		return false;
+	}
+
+	return true;
+
+}
+//-->
+  </script>
+<script type="text/javascript" src="{:C('TMURL')}/common-style/jquery.validate.js"></script>
+<script type="text/javascript" src="{:C('TMURL')}/common-style/default.js"></script>
+<div id="nr-container">
+	<div class="nr-content">
+		<form action="{:U('feedback_from')}" class="feedback" id="yzform" method="post"  OnSubmit="return CheckForm(this)">
+			<dl>
+				<dt class="fdtitle">{:L('ftitle')}:</dt>
+				<dd><input type="text" name="title" class="fdinput">&nbsp;&nbsp;<font color="#f30">*</font></dd>
+			</dl>
+			<dl>
+				<dt  class="fdtitle">{:L('fcontent')}:</dt>
+				<dd><textarea name="content" class="fdtext"></textarea>&nbsp;&nbsp;<font color="#f30">*</font></dd>
+			</dl>
+			<dl>
+				<dt  class="fdtitle">{:L('fname')}:</dt>
+				<dd><input type="text" name="name" class="fdinput">&nbsp;&nbsp;<font color="#f30">*</font></dd>
+			</dl>
+			<dl>
+				<dt class="fdtitle">{:L('fCompanyname')}:</dt>
+				<dd><input type="text" name="company" class="fdinput"></dd>
+			</dl>
+			<dl>
+				<dt class="fdtitle">{:L('ftel')}:</dt>
+				<dd><input type="text" name="tel" class="fdinput">&nbsp;&nbsp;<font color="#f30">*</font></dd>
+			</dl>
+			<dl>
+				<dt class="fdtitle">{:L('fqq')}:</dt>
+				<dd><input type="text" name="qq" class="fdinput"></dd>
+			</dl>
+			<dl>
+				<dt class="fdtitle">{:L('fphone')}:</dt>
+				<dd><input type="text" name="phone" class="fdinput"></dd>
+			</dl>
+			<dl>
+				<dt class="fdtitle">{:L('femail')}:</dt>
+				<dd><input type="text" name="email" class="fdinput"></dd>
+			</dl>
+			<dl>
+				<dt class="fdtitle">{:L('faddress')}:</dt>
+				<dd><input type="text" name="address" class="fdinput"  style="width:350px;"></dd>
+			</dl>
+			<dl>
+				<dt class="fdtitle">{:L('fyzm')}:</dt>
+				<dd><input type="text" name="code" class="fdinput"  style="width:80px;">
+				<img src="Home/Index/verify" id="verify_img" alt="verify_code" onclick="refreshVerify()" class="codeimg">
+				</dd>
+			</dl>
+			<dl>
+				<dd>
+					<input type="hidden" name="jsemail"  value="{$email}">
+					<input type="submit" value="{:L('fsubmit')}" class="fdsub">
+					<input type="reset" value="{:L('freset')}" class="fdres">
+				</dd>
+			</dl>
+		</form>
+		<script>
+		    function refreshVerify() {
+		        var ts = Date.parse(new Date())/1000;
+		        var img = document.getElementById('verify_img');
+		        img.src = "Home/Index/verify?id="+ts;
+
+		    }
+		</script>
+	</div>
+</div>
+
+</block>

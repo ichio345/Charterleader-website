@@ -1,0 +1,128 @@
+<include file="Common/head"/>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+	<div class="title"><span></span><strong>文章列表</strong><a href="{y!:U('add_article')}" class="op">添加新闻</a></div>
+		<div class="list">
+			<div class="search">
+				<div class="btn-group">
+				  <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    查看分类 <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu">
+				  		<li><a href="{y!:U('Article/index')}">显示全部</a></li>
+				    <foreach name="current" item="cl">
+				    	<li><a href="{y!:U('Article/index',array('classid'=>$cl['ID']))}">{y!$cl.html}{y!$cl.Name}</a></li>
+				    </foreach>
+				  </ul>
+				</div>
+				<button type="button" class="btn btn-sm btn-success ml10 move">移动 
+					<span class="glyphicon glyphicon-share-alt"></span>
+				</button>
+				<div class="search_list">
+					<form action="{y!:U('Article/index')}" class="so" method="post">
+						<input type="text" name="so" <empty name="Think.post.so">  placeholder="输入关键词..." <else />   placeholder="{y!:I('so')}" </empty> >
+						<button type="button" class="btn btn-sm btn-warning search_but fr">搜索 <span class="glyphicon glyphicon-search"></span>
+						</button>
+						<script type="text/javascript">
+							$('.search_but').click(function(){
+								$('.so').submit();
+							});
+						</script>
+					</form>
+				</div>
+				
+				<script type="text/javascript">
+					$jq(".move").click(function(){
+		            	if( $jq("input:checked").length<1){
+		            		alert('请选择要移动的项！')
+					     	return false
+					    }else{
+					     	var pd=confirm('你确定要移动吗?')
+			            	if(pd){
+			            		var sfruit=''
+			            		var sjchecked=$jq('#form').find(".sj:checked")
+			            		var len=sjchecked.length;
+			            		var dian=""
+			            		sjchecked.each(function(i){
+			            			i<(len-1)?dian=',':dian=''
+			            			sfruit=sfruit+$(this).val()+dian
+			            		})
+			            		var str="<form action='{y!:U(CONTROLLER_NAME.'/move_article')}' method='post' style='display:none' class='moveform'>";
+			            			str+="<input type='text' name='moveid'>";
+			            			str+="</form>";
+			            		$(this).append(str);
+			            		$('input[name=moveid]').attr('value',sfruit)
+			            		$('.moveform').submit();
+			            	}
+					    }			    
+		            });	
+				</script>
+			</div>
+
+		<!-- 提交选定要删除的列表 -->
+		<form action="{y!:U('Article/delete_article')}" id='form' method="post">
+			<table id='playList' class="table-hover " cellpadding="0" cellspacing="0">
+				<tr>
+					<th width="8%">文章ID</th>
+					<th>文章标题</th>
+					<th width="8%">首页显示</th>
+					<th width="15%">所属分类</th>
+					<th width="15%" style="text-align:right;border:none;">操作</th>
+				</tr>	
+				<volist name="art_list" id="vo" empty="$empty" >
+					<tr>
+						<td width="7%">
+						<input type="checkbox" class="sj" name="del[]" value="{y!$vo.ID}" />&nbsp;&nbsp;{y!$vo.ID}
+						</td>
+						<td >{y!$vo.Title}</td>
+						<td align="center">
+						<if condition="$vo['is_index'] eq 1">
+							<span onclick="ajax_click(this,{y!$vo.ID})" class='glyphicon glyphicon-ok ico_yes'></span>
+						<else/>
+							<span onclick="ajax_click(this,{y!$vo.ID})" class='glyphicon glyphicon-remove ico_no'></span>
+						</if>
+						</td>
+						<td width="15%" ><font color="#989898">{y!$vo.cname}</font></td>
+						<td width="15%" align="right" style="border-right:0" >
+							<a href="{y!:U('update_article',array('aid'=>$vo['ID'],'ysclassid' =>$_GET['classid'],'p'=>$_GET['p']))}">[修改]</a>
+							<a href="{y!:U('delete_article',array('aid'=>$vo['ID'],'ysclassid' =>$_GET['classid'],'p'=>$_GET['p'],'bz' =>1))}" onclick="return confirm('你确定要删除吗?')"><font color="#ff7200">[删除]</font></a>
+						</td>	
+					</tr>
+				</volist>
+				<tr class="bottom">
+					<td colspan="5">
+						<input type="hidden" name="ysclassid" value="{y!$_GET['classid']}">
+						<input type="hidden" name="p" value="{y!$_GET['p']}">
+						<input type="button" value="全选/全不选" id="selectAll" />  
+						<input type="button" value="反选" id="reverse" />
+						<input type="button" value="删除选定" class="list_del">
+					{y!$show}
+					</td>
+				</tr>
+			</table>
+			<script type="text/javascript">
+				function ajax_click(obj,a){
+					$.post('{y!:U("ajax_click_article")}',{
+						id:a,
+					},function(data,status){
+						if(data==1){
+							if($(obj).hasClass('glyphicon-ok')){
+								$(obj).removeClass('glyphicon-ok ico_yes').addClass('glyphicon-remove ico_no');
+								return;
+							}
+							if($(obj).hasClass('glyphicon-remove')){
+								$(obj).removeClass('glyphicon-remove ico_no').addClass('glyphicon-ok ico_yes');
+							}							
+						}
+					})
+				}
+			</script>
+		</form>
+		</div>		
+	</div>
+	<div class="cl"></div>	
+</div>
+<include file="Common/footer"/>
+</body>
+</html>

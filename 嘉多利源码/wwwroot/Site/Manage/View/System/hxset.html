@@ -1,0 +1,89 @@
+<include file="Common/head"/>
+<script type="text/javascript" src="{y!:C('HTStyle')}/js/jquery.SuperSlide.2.1.1.js"></script>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+	<div class="title"><span class="add"></span><strong>核心设置</strong></div>
+		<div class="mrclass">		
+			<div class="mrlist">
+				<div class="slideTxtBox">
+				<div class="hd">
+					<ul>
+						<li>核心设置</li>
+					</ul>
+				</div>
+				<div class="bd">
+					<ul>
+						<form action="{y!:U('System/hxset_form')}" method="post">
+						<li>
+							<span class="mrtitle fl">语言版本：</span>
+							<foreach name="edition" item="vo">
+							<input type="checkbox"  <if condition="$vo['start'] eq 1"> checked="checked"</if> value="1" name="edition[{y!$vo.id}]">
+							{y!$vo.name} &nbsp;
+							</foreach>	
+						</li>
+						<li>
+							<span class="mrtitle fl">后台名:</span>
+							<input type="text" class="mrinput" name="htname" value="{y!$hxset.htname}">
+						</li>
+						<li>
+							<span class="mrtitle fl">网站地址:</span>
+							<input type="text" class="mrinput" name="siteUrl" value="{y!$hxset.siteUrl}">
+						</li>
+						<li>
+							<span class="mrtitle fl">模板风格：</span>
+							<select name="systemp" class="mrselect">
+								<foreach name="filelist" item="file">
+									<option value="{y!$file}" <if condition="$file eq $hxset['systemp']"> selected</if> >&nbsp;{y!$file}</option>
+								</foreach>
+							</select>
+						</li>
+						
+						<li>
+							<span class="mrtitle fl">验证码字符：</span>
+							<input type="text" class="mrinput" name="VLENTH" value="{y!:C('VLENTH')}">
+						</li>
+						<li>
+							<span class="mrtitle fl">URL模式: </span>
+							<input type="text" class="mrinput" name="URL_MODEL" value="{y!:C('URL_MODEL')}">
+						</li>
+						<li>
+							<span class="mrtitle fl">产品分类深度:</span>
+							<input type="text" class="mrinput" name="depth" value="{y!:C('ClumnPath')} ">
+						</li>
+
+						<li>
+							<span class="mrtitle fl">水印:</span>
+							
+							开启&nbsp;&nbsp;<input type="radio" value="1" <if condition="C('IS_WATER')"> checked="checked" </if> name="is_water">&nbsp;&nbsp;
+							关闭&nbsp;&nbsp;<input type="radio" <if condition=" !C('IS_WATER')"> checked="checked" </if> value="0" name="is_water">
+						</li>
+						<input type="submit" value="提交" class="but">
+						</form>
+					</ul>
+					
+
+					
+				</div>
+				</div>
+
+				<style type="text/css">
+					/* 本例子css */
+		.slideTxtBox{  border:1px solid #ddd; text-align:left; margin:40px; }
+		.slideTxtBox .hd{ height:35px; line-height:35px; background:#f4f4f4; padding:0 10px 0 20px;   border-bottom:1px solid #ddd;  position:relative; }
+		.slideTxtBox .hd ul{ float:left;  position:absolute; left:20px; top:-1px; height:32px; padding:0 !important;   }
+		.slideTxtBox .hd ul li{ float:left; padding:0 15px; cursor:pointer;  }
+		.slideTxtBox .hd ul li.on{ height:35px;  background:#fff; border:1px solid #ddd; border-bottom:2px solid #fff; }
+		.slideTxtBox .bd ul{padding:20px 15px 10px;}
+
+				</style>
+				<script type="text/javascript">jQuery(".slideTxtBox").slide({trigger:"click"});</script>
+			</div>
+			
+		</div>		
+	</div>
+	<div class="cl"></div>
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

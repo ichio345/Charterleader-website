@@ -1,0 +1,106 @@
+<include file="Common/head"/>
+<!-- 图片预览 -->
+	<include file="Common/pic_js"/>
+	<!-- 配置上传图片js -->
+	<script type="text/javascript">
+	    var PICNUM=1;
+	    //还可以上传几张图片
+	    var CanPicnum=PICNUM;
+	    //设置单个图片大小
+	    var PicSize=500*1024;
+	</script>
+	<script type="text/javascript" src="{y!:C('HTStyle')}/webuploader/upcon.js"></script>
+	<!-- 配置上传图片js end -->
+
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+		<div class="title"><span class="add"></span><strong>添加栏目</strong></div>
+		<div class="mrclass jz">
+			<form action="{y!:U("Column/add_class_from")}" method="post" enctype="multipart/form-data" >
+				<div class="mrlist">
+					<ul>
+						<li>
+							<input type="hidden" name="depth" value="{y!$depth.depth}">
+							
+							<span class="mrtitle fl">所属栏目：</span>
+							<select name="classid" class="mrselect" >
+								<option value="0" selected="selected">&nbsp;顶级栏目</option>
+								<volist name="class" id='vo'>
+									<option value="{y!$vo.cid}" <if condition="$vo.cid eq $_GET['cid']" > selected </if>>&nbsp;{y!$vo.html}{y!$vo.cname}
+									</option>
+								</volist>
+							</select>
+						</li>
+						<li>
+							<span class="mrtitle fl">栏目名称：</span>
+							<input type="text" name='name' class='mrinput' />
+						</li>
+						<li>
+							<span class="mrtitle fl">副标题：</span>
+							<input type="text" name='remark' class='mrinput' />
+						</li>
+						<li>
+							<span class="mrtitle fl">是否前台显示：</span>
+							<input type="radio" name='Status' checked="checked" value="1" />&nbsp;是&nbsp;&nbsp;
+							<input type="radio" name='Status' value="0" />&nbsp;否
+						</li>
+						<li>
+							<span class="mrtitle fl">栏目属性：</span>
+							<foreach name="bltype" item="vo">
+								<input type="hidden" name="class_type[id][]" value="{y!$vo.id}">
+								<input type="hidden" name="class_type[key][{y!$vo.id}]" value="{y!$vo.name}" >
+								{y!$vo.name}&nbsp;&nbsp;<input name="class_type[value][{y!$vo.id}]" type="{y!$vo.type}" <if condition="$vo['type'] eq text" > class='mrinput' </if>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								
+							</foreach>
+						</li>
+						<li>
+							<span class="mrtitle fl">系统模型：</span>
+							<select name="ModelID" id="" class="mrselect">
+								<option value="0">&nbsp;请选择</option>
+								<volist name="mlist" id="vo">
+									<option value="{y!$vo.ID}" <if condition="$vo.ID eq $_GET['mid']" > selected </if>>&nbsp;{y!$vo.Title}</option>
+								</volist>
+							</select>
+							<span class="mrtitle " style="text-align:center;margin-left:15px;">列表模板：</span>
+							<select class="mrselect" name="systemplist">
+								<option value="">&nbsp;默认</option>
+								<foreach name="systemplist" item="list">
+								<option value="{y!$list}">&nbsp;{y!$list}</option>
+								</foreach>
+							</select>
+							<span class="mrtitle " style="text-align:center;margin-left:15px;">内容页模板：</span>
+							<select class="mrselect" name="systempshow">
+								<option value="">&nbsp;默认</option>
+								<foreach name="systempshow" item="show">
+								<option value="{y!$show}">&nbsp;{y!$show}</option>
+								</foreach>
+							</select>
+						</li>
+						<li>
+							<span class="mrtitle fl">栏目图片：</span>
+							<div class="uploader">
+								<div id="uploader">
+									<div id="filePicker"></div>
+								    <div id="fileList" class="uploader-list"></div>
+								</div>	
+							</div>
+						</li>
+						<li>
+							<span class="mrtitle fl">栏目简介：</span>
+							<textarea name='Class_info' class="mrtext"></textarea>
+						</li>
+						<li>
+							<input type="submit" name="dosubmit" class="but" value="添加" />
+							<a href="{y!:U("Column/index")}" class="ret">返回</a>
+						</li>
+					</ul>	
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="cl"></div>	
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<include file="Common/head"/>
+<!-- 图片预览 -->
+	<include file="Common/pic_js"/>
+	<!-- 配置上传图片js -->
+	<script type="text/javascript">
+	    var PICNUM=1;
+	    //还可以上传几张图片
+	    var CanPicnum=PICNUM;
+	    //设置单个图片大小
+	    var PicSize=500*1024;
+	</script>
+	<script type="text/javascript" src="{y!:C('HTStyle')}/webuploader/upcon.js"></script>
+	<!-- 配置上传图片js end -->
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+		<div class="title"><span class="add"></span><strong>添加分类</strong></div>
+		<div class="mrclass jz">
+			<form action="{y!:U("Product/add_product_class_from")}" method="post" enctype="multipart/form-data" >
+				<div class="mrlist">
+					<ul>
+						<input type="hidden" name="classid" value="{y!$_GET['cid']}">
+						<input type="hidden" name="ModelID" value="6">
+						<li>
+							<span class="mrtitle fl">分类名称：</span>
+							<input type="text" name='name' class='mrinput' />
+						</li>
+						<li>
+							<span class="mrtitle fl">所属分类：</span>
+							<select name="classid" class="mrselect" >
+								<option value="{y!$djclass['ID']}" selected="selected">&nbsp;顶级分类</option>
+								<volist name="Pclass" id='vo'>
+									<option value="{y!$vo.ID}" <if condition="$vo['ID'] eq $_GET['cid']"> selected </if>>&nbsp;{y!$vo.html}{y!$vo.Name}
+									</option>
+								</volist>
+							</select>
+						</li>
+						<li>
+							<span class="mrtitle fl">是否前台显示：</span>
+							<input type="radio" name='Status' checked="checked" value="1" />&nbsp;是&nbsp;&nbsp;
+							<input type="radio" name='Status' value="0" />&nbsp;否
+						</li>
+						<li>
+							<span class="mrtitle fl">栏目图片：</span>
+							<div class="uploader">
+								<div id="uploader">
+									<div id="filePicker"></div>
+								    <div id="fileList" class="uploader-list"></div>
+								</div>	
+							</div>
+						</li>
+												
+						<li>
+							<input type="submit" name="dosubmit" class="but" value="添加" />
+							<a href="{y!:U("Product/product_class")}" class="ret">返回</a>
+						</li>
+					</ul>	
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="cl"></div>	
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

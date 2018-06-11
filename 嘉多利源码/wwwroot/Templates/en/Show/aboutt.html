@@ -1,0 +1,101 @@
+<extend name="Base:body" />
+
+<block name='content'>
+		<style>
+			*{margin:0;padding:0}
+			ul li{list-style: none;}
+			.address {max-width:1200px;margin:0 auto}
+			.address ul li{float:left;width:380px;margin:10px;color:#fff;padding: 10px 20px;}
+			.address ul li:nth-child(odd){ background: #D7282D;}
+			.address ul li:nth-child(even){ background: #414141;}
+			.address ul li:nth-child(odd) .add-top b{color:#D7282D}
+			.add-bottom span{ display: block;}
+			.add-top{border-bottom:1px dashed #fff;padding-bottom:10px}
+			.add-top span:nth-child(1){ display: inline-block;border:1px solid #fff;width:20px;height:20px;padding:2px;text-align: center;line-height:20px;}
+			.add-top span:nth-child(1) b{font-weight:bold;font-size:16px;background: #fff;color:#949698;width:20px;height:20px;display: inline-block;}
+			.add-top span:nth-child(2){margin: -5px 10px;display: inline-block;font-size: 20px;font-weight: bold;vertical-align: middle; line-height: 27px;height: 35px;}
+			.add-bottom{margin-top:10px;}
+			.add-bottom span{line-height:28px;}
+			@media screen and (min-width:0px)  and  (max-width:1200px)  {
+				.address img{width: 100%;max-width: 229px;}
+				.address ul li{width: 94%;}
+			}
+		
+		</style>		
+		<div class="address">
+			<img src="{:C('TMURL')}/images/rx-title.jpg" height="112" width="329" style="margin:0 auto;text-align:center;display:block;margin-top:30px;margin-bottom:20px;">
+			<ul>
+				<li>
+					<div class="add-top">
+						<span><b>1</b></span>
+						<span>East China</span>
+					</div>
+					<div class="add-bottom">
+						<span>【Tel:】  0512-68087857</span>	
+						<span>【Add:】   F5,No. 625, Unit 4 ChuangyeBuilding,Bin-He Rd,Suzhou,Jiang</span>	
+						<span>【Email:】 web_sales@clpe.com.cn</span>	
+					</div>
+				</li>
+				<li>
+					<div class="add-top">
+						<span><b>2</b></span>
+						<span>South China</span>
+					</div>
+					<div class="add-bottom">
+						<span>【Tel:】 0769-85098277</span>	
+						<span>【Add:】  No.76 zhenan east road, chang 'an  town, dongguan city</span>	
+						<span>【Email:】sales_pts@programtek.com.cn</span>	
+					</div>
+				</li>
+				<li>
+					<div class="add-top">
+						<span><b>3</b></span>
+						<span>Southwest China</span>
+					</div>
+					<div class="add-bottom">
+						<span>【Tel:】0512-68087857</span>	
+						<span>【Add:】  F5,No. 625, Unit 4 ChuangyeBuilding,Bin-He Rd,Suzhou,Jiang </span>	
+						<span>【Email:】web_sales@clpe.com.cn</span>		
+					</div>
+				</li>
+				<li>
+					<div class="add-top">
+						<span><b>4</b></span>
+						<span>Taiwan</span>
+					</div>
+					<div class="add-bottom">
+						<span>【Tel:】886-2-27970115</span>	
+						<span>【Add:】 2 / f, 2 wenhu street, lake district,  Taipei, Taiwan </span>	
+						<span>【Email:】web_sales@clpe.com.cn</span>	
+					</div>
+				</li>
+				<li>
+					<div class="add-top">
+						<span><b>5</b></span>
+						<span>Europe</span>
+					</div>
+					<div class="add-bottom">
+						<span style="float:left;">【Name:】Jason Ka</span>	
+						<span>【Tel:】  +491634705444 </span>	
+						<span>【Name:】 Tilman Hemsing</span>	
+						<span>【Tel:】 +49157 72001899</span>	
+						<span>【Email:】 tilman@clpe.com.cn</span>	
+					</div>
+				</li>
+				<li>
+					<div class="add-top">
+						<span><b>6</b></span>
+						<span>Southeast Asia</span>
+					</div>
+					<div class="add-bottom">
+						<span>【Tel:】  0512-68087857</span>	
+						<span>【Add:】  F5,No. 625, Unit 4 ChuangyeBuilding,Bin-He Rd,Suzhou,Jiang </span>	
+						<span>【Email:】 web_sales@clpe.com.cn</span>	
+					</div>
+				</li>
+			</ul>
+			
+		</div>
+<div class="clear"></div>
+{$content.Content}
+</block>

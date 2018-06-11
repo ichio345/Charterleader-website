@@ -1,0 +1,37 @@
+<include file="Common/head"/>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+		<div class="title"><span class="add"></span><strong>修改角色</strong></div>
+		<div class="mrclass jz">
+			<form action="{y!:U('Rbac/update_role',array('noid'=>$_GET['noid']))}" method="post">
+			<div class="mrlist">
+				<ul>
+					<li>
+						<span class="mrtitle fl">角色名称：</span>
+						<input type="text" value="{y!$up.name}" name='name' class='mrinput' />
+					</li>
+					<li>
+						<span class="mrtitle fl">角色描述：</span>
+						<input type="text" value="{y!$up.remark}" name='remark' class="mrinput">	
+					</li>
+					<li>
+						<span class="mrtitle fl">是否开启：</span>
+						<input type="radio" name="status" value="1" <if condition="$up.status eq 1"> checked="checked" </if>>开启
+						<input type="radio" <if condition="$up.status eq 0"> checked="checked" </if> name="status" value="0">关闭
+					</li>
+					<!-- <input type="hidden" name='noid' value="{y!$up.}"> -->
+					<li>
+						<input type="submit" name="dosubmit" class="but" value="修改" />
+						<a href="{y!:U('role')}" class="ret ml10">返回</a>
+					</li>
+				</ul>
+			</div>
+			</form>
+		</div>
+	</div>
+	<div class="cl"></div>	
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

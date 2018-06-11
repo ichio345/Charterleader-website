@@ -1,0 +1,29 @@
+<extend name='Base:body' />
+
+
+
+<block name='content'>	
+	<link rel="stylesheet" type="text/css" href="{:C('TMURL')}/common-style/style.css">
+	<script type="text/javascript" src="{:C('TMURL')}/common-style/jqthumb.js"></script>
+
+
+	
+    
+    
+    
+    <div class="wrap">
+        <ul class="ny-partner">
+                <Piclist pagenum='12' desclen='20' titlelen='10' >
+                <li>
+                  <div class="pic">
+                      <img src="{$Piclist.src}" height="124" width="281">
+                  </div>
+                  <p>{$Piclist.title}</p>
+                </li>
+                </Piclist>
+        </ul>
+        <div class="cl"></div>
+        <!-- 调用分页标签 -->
+		{$pageshow}
+    </div>
+</block>

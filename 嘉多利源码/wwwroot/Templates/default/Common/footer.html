@@ -1,0 +1,244 @@
+<!-- pc 底部 begin -->
+<div class="footer pc">
+    <div class="wrap">
+        <div class="left fast-link">
+            <dl>
+                <dt>快捷链接</dt>
+                <dd><a href="__ROOT__/about238.html">关于我们</a></dd>
+                <dd><a href="__ROOT__/productt240.html">产品中心</a></dd>
+                <dd><a href="__ROOT__/picture241.html">合作伙伴</a></dd>
+                <dd><a href="__ROOT__/article242.html">新闻中心</a></dd>
+                <dd><a href="__ROOT__/aboutt309.html">企业风采</a></dd>
+                <dd><a href="__ROOT__/aboutt244.html">联系我们</a></dd>
+            </dl>
+            <dl>
+                <dt>主营产品</dt>
+                <product limit='5' titlelen='18' id='240'>
+                <dd><a href="{$product.link}">{$product.title}</a></dd>
+                </product>
+            </dl>
+            <dl>
+                <dt>友情链接</dt>
+                <fdlink>
+                <dd><a href="{$fdlink.link}" target="_blank">{$fdlink.name}</a></dd>
+                </fdlink>
+            </dl>
+        </div>
+
+        <div class="contact">
+            <em>关注我们</em>
+            <img src="{:C('TMURL')}/images/ewm.jpg" height="118" width="118" alt="微信二维码" title="微信二维码" class="left">
+            <p class="right">
+                电话：{$tel}<br>
+            手机：{$phone}<br>
+            邮箱：{$email}<br>
+            地址：{$address}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="bottom pc">
+    <div class="wrap">
+        <p class="left">版权所有：<a href="index.html" target="_blank">{$sitename}</a>&nbsp;&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn/" target="_blank">{$beian}</a> </p>
+        <em class="right">销售热线：{$tel}</em>
+    </div>
+</div>
+<!-- pc 底部 end -->
+
+<!-- wap 底部 begin -->
+<div class="footer wap">
+	<div class="wrap">
+    	
+    
+        
+        <!--联系 -->
+        <div class="contact-way left">
+        	<span class="title">联系方式</span>
+            <p class="lx01">地址：{$address}</p>
+        	<p class="lx02">销售热线：{$tel}
+            <p class="lx04">手机：<a href="tel:{18751152399}">{$phone}</a></p>
+            <p class="lx03">E-mail：{$email}</p>
+
+        </div>
+        <!--联系 -->
+            <!--版权 -->
+        <div class="copyright left">
+            <p>版权所有 © 2017 {$sitename} </p>
+            <p>{$beian} </p>
+        </div>
+        <!--版权 -->
+        <!--联系 -->
+        <!--联系 -->
+        
+    </div>
+</div>
+<!-- wap 底部 end -->
+
+
+<!--wap 导航 -->
+<!-- <div class="wap-nav wap">
+	<button type="button" class="drawer-toggle drawer-hamburger">
+		<span class="drawer-hamburger-icon"></span>
+	</button>
+</div> -->
+<!--wap 导航 -->
+
+<div class="clear"></div>
+
+<!--wap 导航弹出 -->
+<!-- <nav class="drawer-nav" role="navigation">
+	<ul>
+		<li><em><a href="{:U('/index')}">网站首页</a></em></li>
+                       <menu>
+                       <li><em><a href="{$menulist.link}">{$menulist.name}</a></em></li>
+                       </menu>
+	</ul>
+</nav> -->
+<!--wap 导航弹出 -->
+
+
+
+
+
+
+<!--公用 -->
+<script src="{:C('TMURL')}/js/pc-slide-js.js"></script>
+<script src="{:C('TMURL')}/js/wap-slide-js.js"></script>
+<script src="{:C('TMURL')}/js/wap-slide-js1.js"></script>
+
+<!--导航 -->
+<script>
+    $(document).ready(function() {
+      $('.drawer').drawer();
+    });
+</script>
+<script type="text/javascript">
+        var $311 = $;
+    </script>
+    <script type="text/javascript">
+        console.log($311.fn.jquery);
+    </script>
+<script type="text/javascript">
+var $a=$("intro .buttons a");
+var $s=$("intro .buttons span");
+var cArr=["p7","p6","p5","p4","p3","p2","p1"];
+var index=0;
+$(".next").click(
+    function(){
+    nextimg();
+    }
+)
+$(".prev").click(
+    function(){
+    previmg();
+    }
+)
+//上一张
+function previmg(){
+    cArr.unshift(cArr[6]);
+    cArr.pop();
+    //i是元素的索引，从0开始
+    //e为当前处理的元素
+    //each循环，当前处理的元素移除所有的class，然后添加数组索引i的class
+    $(".intro .box li").each(function(i,e){
+        $(e).removeClass().addClass(cArr[i]);
+    })
+    index--;
+    if (index<0) {
+        index=6;
+    }
+    show();
+}
+
+//下一张
+function nextimg(){
+    cArr.push(cArr[0]);
+    cArr.shift();
+    $(".intro .box li").each(function(i,e){
+        $(e).removeClass().addClass(cArr[i]);
+    })
+    index++;
+    if (index>6) {
+        index=0;
+    }
+    show();
+}
+
+//通过底下按钮点击切换
+$a.each(function(){
+    $(this).click(function(){
+        var myindex=$(this).index();
+        var b=myindex-index;
+        if(b==0){
+            return;
+        }
+        else if(b>0) {
+            /*
+             * splice(0,b)的意思是从索引0开始,取出数量为b的数组
+             * 因为每次点击之后数组都被改变了,所以当前显示的这个照片的索引才是0
+             * 所以取出从索引0到b的数组,就是从原本的这个照片到需要点击的照片的数组
+             * 这时候原本的数组也将这部分数组进行移除了
+             * 再把移除的数组添加的原本的数组的后面
+             */
+            var newarr=cArr.splice(0,b);
+            cArr=$.merge(cArr,newarr);
+            $(".intro .box li").each(function(i,e){
+            $(e).removeClass().addClass(cArr[i]);
+            })
+            index=myindex;
+            show();
+        }
+        else if(b<0){
+            /*
+             * 因为b<0,所以取数组的时候是倒序来取的,也就是说我们可以先把数组的顺序颠倒一下
+             * 而b现在是负值,所以取出索引0到-b即为需要取出的数组
+             * 也就是从原本的照片到需要点击的照片的数组
+             * 然后将原本的数组跟取出的数组进行拼接
+             * 再次倒序,使原本的倒序变为正序
+             */
+            cArr.reverse();
+            var oldarr=cArr.splice(0,-b)
+            cArr=$.merge(cArr,oldarr);
+            cArr.reverse();
+            $(".intro .box li").each(function(i,e){
+            $(e).removeClass().addClass(cArr[i]);
+            })
+            index=myindex;
+            show();
+        }
+    })
+})
+
+//改变底下按钮的背景色
+function show(){
+        $($s).eq(index).addClass("blue").parent().siblings().children().removeClass("blue");
+}
+
+//点击class为p2的元素触发上一张照片的函数
+$(document).on("click",".p2",function(){
+    previmg();
+    return false;//返回一个false值，让a标签不跳转
+});
+
+//点击class为p4的元素触发下一张照片的函数
+$(document).on("click",".p4",function(){
+    nextimg();
+    return false;
+});
+
+//          鼠标移入box时清除定时器
+$(".intro .box").mouseover(function(){
+    clearInterval(timer);
+})
+
+//          鼠标移出box时开始定时器
+$(".intro .box").mouseleave(function(){
+    timer=setInterval(nextimg,4000);
+})
+
+//          进入页面自动开始定时器
+timer=setInterval(nextimg,4000);
+</script>
+</body>
+</html>

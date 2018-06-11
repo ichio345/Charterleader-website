@@ -1,0 +1,35 @@
+<include file="Common/head"/>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+		<div class="title"><span class="add"></span><strong>添加角色</strong></div>
+		<div class="mrclass jz">
+			<form action="{y!:U('Rbac/add_role_form')}" method="post">
+			<div class="mrlist">
+				<ul>
+					<li>
+						<span class="mrtitle fl">角色名称：</span>
+						<input type="text" name='name' class='mrinput' placeholder="角色英文名称" />
+					</li>
+					<li>
+						<span class="mrtitle fl">角色描述：</span>
+						<input type="text" name='remark' class='mrinput' placeholder="角色中文名称"/>	
+					</li>
+					<li>
+						<span class="mrtitle fl">是否开启：</span>
+						<input type="radio" name="status" value="1" checked="checked">开启
+						<input type="radio" name="status" value="0">关闭
+					</li>
+					<li>
+						<input type="submit" name="dosubmit" class="but" value="添加" />
+					</li>
+				</ul>
+			<div class="mrlist">	
+			</form>
+		</div>
+	</div>
+	<div class="cl"></div>	
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

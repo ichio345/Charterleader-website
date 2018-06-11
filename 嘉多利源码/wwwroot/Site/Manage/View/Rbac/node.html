@@ -1,0 +1,51 @@
+<include file="Common/head"/>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+	<div class="title"><span></span><strong>应用列表</strong><!-- <a href="{y!:U('add_article')}" class="op">添加应用</a> --></div>
+		<div class="rbac">
+			<volist name='node_list' id='yy'>
+				<div class="yy">
+					<h1>
+						{y!$yy.title}&nbsp;&nbsp;
+						<font color="#999999" style="font-size:12px;">[ {y!$yy.name} ]</font>
+						<span class="action fr">
+							<a href="{y!:U('Rbac/add_node',array('pid'=>$yy['id'],'level'=>2))}" style="color:#447bf6">[添加控制器]</a>&nbsp;
+							<a href="{y!:U('Rbac/update_node',array('noid'=>$yy['id'],'level'=>1))}">[修改]</a>&nbsp;
+							<!-- <a href="#">[删除]</a> -->
+						</span>
+					</h1>
+					<form action="sort_node" method="POST">
+					<foreach name='yy.child' item='kzq' >
+						<dl>
+							<dt>
+							<input class="sort_node" name="{y!$kzq.id}" type="text" value="{y!$kzq.sort}">
+							{y!$kzq.title}&nbsp;
+							<font color="#999999" style="font-size:12px;">({y!$kzq.name})</font>
+								<span class="kzq_action fr">
+									<a href="{y!:U('Rbac/add_node',array('pid'=>$kzq['id'],'level'=>3))}" >[添加方法]</a>&nbsp;
+									<a href="{y!:U('Rbac/update_node',array('noid'=>$kzq['id'],'level'=>2))}">[修改]</a>&nbsp;
+									<!-- <a href="#">[删除]</a> -->
+								</span>
+							</dt>
+							<foreach name='kzq.child' item='ff'>
+								<dd>{y!$ff.title}&nbsp;<font color="#999999" style="font-size:12px;">({y!$ff.name})</font>
+									<span>
+										<a href="{y!:U('Rbac/update_node',array('noid'=>$ff['id'],'level'=>3))}">[修改]</a>
+										<!-- <a href="#">[删除]</a> -->
+									</span>
+								</dd>
+							</foreach>	
+						</dl>
+					</foreach>
+					<input type="submit" value="修改排序" class="sub_node">	
+					</form>
+				</div>	
+			</volist>	
+		</div>		
+	</div>
+	<div class="cl"></div>	
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

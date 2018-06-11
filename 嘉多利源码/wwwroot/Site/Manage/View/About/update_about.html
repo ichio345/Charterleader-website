@@ -1,0 +1,72 @@
+<include file="Common/head"/>
+<script type="text/javascript">
+    window.UEDITOR_HOME_URL="__ROOT__/Site/Common/Plug/Ueditor/";
+    window.onload=function(){
+        UE.getEditor('ueditor');
+    }
+</script>
+<script type="text/javascript" src="__ROOT__/Site/Common/Plug/Ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__ROOT__/Site/Common/Plug/Ueditor/ueditor.all.js"></script>
+<div class="main">
+	<include file="Common/left"/>
+	<div class="main_right">
+		<div class="title"><span class="add"></span><strong>修改内容</strong></div>
+		<div class="mrclass jz">
+			<form action="{y!:U('update_article_form')}" method="post">
+            <div class="mrlist">
+               	<ul>
+               		<li>
+               			<span class="mrtitle fl">内容标题：</span>
+               			<input type="text" name='title' class='mrinput' value="{y!$up_art.Title}" />
+               		</li>
+					<li>
+						<span  class="mrtitle fl">所属栏目：</span>
+						<input type="hidden" name="artid" value="{y!$up_art.aid}" class='mrinput' >	
+						<select name="classid" class="mrselect">
+							<volist name="class" id='vo'>
+								<option value="{y!$vo.ID}" <if condition="$vo.ID eq $up_art['cid']"> selected="selected" </if>>&nbsp;{y!$vo.html}{y!$vo.Name}</option>
+							</volist>
+						</select>
+						&nbsp;&nbsp;&nbsp;&nbsp;首页显示：
+						<input type="checkbox" name="is_index" value="1" <if condition="$up_art['is_index'] eq 1"> checked </if> >				
+					</li>
+					<foreach name="bltype" item="vo">
+					<li>
+						<input type="hidden" name="class_type[id][]" value="{y!$vo.id}">
+						<input type="hidden" name="class_type[key][{y!$vo.id}]" value="{y!$vo.name}" ><input type="hidden" name="class_type[remark][{y!$vo.id}]" value="{y!$vo.remark}" >
+						<span class="mrtitle fl"><span style="text-decoration:underline;">{y!$vo.name}:</span></span>
+						<input name="class_type[value][{y!$vo.id}]" type="{y!$vo.type}" 
+							<foreach name="type_list" item="list">
+								<if condition="$list.typeid eq $vo.id ">value="{y!$list.typevalue}" <if condition='$list.typevalue eq 1'>checked</if></if> 
+							</foreach> 
+							<if condition="$vo['type'] eq text" > class='mrinput' </if>>
+					</li>
+					</foreach>
+					<li>
+						<span class="mrtitle fl">内容描述：</span>
+						<textarea name="Desc" class="mrtext">{y!$up_art.Desc}</textarea>	
+					</li>
+					<li>
+						<span class='mrtitle fl'>内容：</span>
+						<div class="mrcontent fl">
+						<textarea name="content" id='ueditor'>{y!$up_art.Content}</textarea>
+						</div>
+						<div class="cl"></div>
+					</li>
+					
+				</ul>
+					<div class="fixed_submit">
+						<input type="submit" name="dosubmit" class="fixed_submit_sub" value="修改" />
+						<a href="{y!:U('index')}" class="fixed_submit_ret">返回</a>
+					</div>
+				<input type="submit" name="dosubmit" class="but" value="修改" />
+				<a href="{y!:U('index')}" class="ret">返回</a>
+			</div>
+			</form>
+		</div>
+	</div>
+	<div class="cl"></div>	
+</div>
+<include file="Common/foot"/>
+</body>
+</html>

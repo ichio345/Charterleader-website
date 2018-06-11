@@ -1,0 +1,49 @@
+@media screen and (min-width:0px)  and  (max-width:1200px)  {
+	.jd-title{padding-top:3px;margin:10px auto;text-align: center;width:90%;background: none;height: 70px;}
+	.jd-title span,.jd-title b{display: block;margin:5px 0;text-align: center;width:100%;font-size: 1.1rem;}
+	.jd-title span{font-size: 2.5rem;}
+	.jd-title .jd-titleb{font-size: 1.1rem}
+	.jd-ul ul{margin:10px 0;margin-top: 37px;}
+	.jd-ul li{margin:0px 2.5%;float:left;width:20%;height:100%; background: url(../images/h1bg.png) no-repeat center center;background-size:100%;text-align: center;line-height:100px;color:#fff;font-size:30px;}
+	.zhidao{margin-top: 50px;}
+	.jdl2 .jd-title{background: none;}
+	.jdl2{padding:1px 0}
+	.zd-left,.zd-right{float:none;width:100%;}
+	.zd-left{width:80%;margin:0 auto}
+	.zd-right{width:100%;margin:10px auto;text-align: center;height: auto;}
+	.zd-right span{padding:0; display: block;text-align: center;}
+	.zd-div li{font-size: 1.1rem;}
+	.jdl3{margin:10px 0}
+	.story{margin:20px 0}
+	.story li{margin:20px auto;float:none;}
+	.story li:nth-child(odd) .story-int{margin:20px auto 0 auto}
+	.story li:nth-child(even) .story-img{margin:20px auto 0 auto}
+	.jiahua-bg{margin-top: 30px;}
+	.jianying{margin:20px auto}
+	#jiantou{ display: block;}
+	.story-int span:nth-child(1){margin:20px 0}
+	.story-img span, .story-int span{margin:10px 0}
+}
+
+@media screen and (min-width:870px)  and  (max-width:1200px)  {
+	.jd-ul{text-align: center;}
+	.jd-ul li{width:170px;line-height:180px;float:none;display: inline-block;font-size:40px;}
+	.zd-left{width:50%;margin:0 auto}
+	
+	.zd-right span{padding-left:30px; display: inline-block;text-align: left;}
+	.story-img{display: inline-block;text-align: center;}
+	
+	.story li{width:45%;text-align: center;margin-bottom:50px;}
+	.story li:nth-child(odd) .story-int{margin:20px auto 0 auto}
+	.story li:nth-child(even) .story-img{margin:20px auto 0 auto}
+}
+
+@media screen and (min-width:0px)  and  (max-width:700px)  {
+	.jianying{width:95%;margin-top: 31px}
+  	 .swiper-button-next, .swiper-container-rtl .swiper-button-prev,.swiper-button-prev, .swiper-container-rtl .swiper-button-next{ display: none;}
+	.story li{width:95%;margin:20px auto}
+	.story-img{width:280px;margin:0 auto}
+	.story-int{text-align: center;margin-bottom:30px;}
+	
+	
+}

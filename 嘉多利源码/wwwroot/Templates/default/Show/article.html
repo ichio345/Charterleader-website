@@ -1,0 +1,26 @@
+<extend name="Base:body" />
+
+
+<block name='content'>
+	<link rel="stylesheet" type="text/css" href="{:C('TMURL')}/common-style/style.css">
+	<div class="wrap"><div id="nr-container">
+		<div class="nr-title">
+			{$content.Title}
+		</div>
+		<div class="nr-info">
+			发布时间：{$content.Rdate|date='Y-m-d H:i:s',###}   点击次数：{$content.Click}
+		</div>
+		<div class="nr-content">
+			{$content.Content}
+			<div class="prev">
+				{:L('prev')}:<a href="{$prev.link}">{$prev.title}</a>
+			</div>
+			<div class="next">
+				{:L('next')}:<a href="{$next.link}">{$next.title}</a>
+			</div>
+			<div class="returnbt">
+				<input type='button' value='{:L("back")}' OnClick='history.back();'>
+			</div>
+		</div>
+	</div></div>
+</block>
